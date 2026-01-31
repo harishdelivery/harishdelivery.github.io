@@ -31,26 +31,28 @@ h3{font-size:20px;margin-bottom:6px;}
 p{margin-bottom:12px;color:var(--muted);}
 
 .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;}
-.grid-logos{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:26px;align-items:center;}
-.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:24px;}
 
-.card{
- background:#fff;
- border-radius:16px;
- padding:24px;
- box-shadow:0 8px 26px rgba(0,0,0,.06);
-}
+
+
 .logo-box{
  background:#fff;
- border-radius:14px;
- padding:18px;
+ border-radius:12px;
+ padding:14px;
+ width:150px;
+ height:90px;
  display:flex;
  align-items:center;
  justify-content:center;
  box-shadow:0 6px 18px rgba(0,0,0,.06);
- cursor:pointer;
+ flex:0 0 auto;
 }
-.logo-box img{max-width:120px;max-height:56px;}
+
+.logo-box img{
+ max-width:120px;
+ max-height:50px;
+ object-fit:contain;
+}
+
 
 .helper{font-size:13px;color:var(--muted);margin-bottom:14px;}
 
@@ -101,6 +103,97 @@ footer{
  padding:24px 16px;
  font-size:14px;
 }
+
+
+
+
+/* === LOGO CAROUSEL (HORIZONTAL ONLY) === */
+.logo-carousel{
+  width:100%;
+  overflow:hidden;
+  position:relative;
+  margin-top:16px;
+}
+
+.logo-track{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  gap:32px;
+  white-space:nowrap;
+  animation:logoScroll 45s linear infinite;
+}
+
+.logo-carousel:hover .logo-track{
+  animation-play-state:paused;
+}
+
+@keyframes logoScroll{
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.logo-box{
+  flex:0 0 auto;
+  width:160px;
+  height:90px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+}
+
+.logo-box img{
+  max-width:120px;
+  max-height:50px;
+  object-fit:contain;
+}
+
+
+
+
+
+/* ===== FINAL CAROUSEL LOCK ===== */
+.logo-carousel{
+  width:100%;
+  overflow:hidden;
+  margin-top:16px;
+}
+
+.logo-track{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  gap:32px;
+  white-space:nowrap;
+  animation:scrollLogos 45s linear infinite;
+}
+
+@keyframes scrollLogos{
+  from { transform:translateX(0); }
+  to   { transform:translateX(-50%); }
+}
+
+.logo-box{
+  flex:0 0 auto;
+  width:160px;
+  height:90px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+}
+
+.logo-box img{
+  max-width:120px;
+  max-height:50px;
+  object-fit:contain;
+}
+
 </style>
 
 
@@ -144,29 +237,47 @@ footer{
  </div>
 </section>
 
+
+<section class="container">
+ <h2>Delivery Leadership Approach (PRISM)</h2>
+ <p>
+  My delivery leadership approach follows a <strong>PRISM</strong> model—designed to drive predictable, scalable, and intelligence-led delivery outcomes across global programs.
+ </p>
+ <ul>
+  <li><strong>P — Predictability:</strong> Strong governance, execution discipline, and milestone control to reduce delivery risk and surprises.</li>
+  <li><strong>R — Results:</strong> Clear alignment of delivery outcomes with customer value, CSAT, and revenue realization.</li>
+  <li><strong>I — Intelligence:</strong> Pragmatic use of AI to enhance visibility, early risk identification, trend analysis, and decision-making.</li>
+  <li><strong>S — Scale:</strong> Proven ability to operate and stabilize multi-region, multi-vendor delivery environments.</li>
+  <li><strong>M — Metrics:</strong> Outcome-driven KPIs and reporting focused on business impact rather than activity tracking.</li>
+ </ul>
+</section>
+
+
 <section class="container">
  <h2>Organizations & Delivery Environments</h2>
 
- <div class="grid-logos">
-  <div class="logo-box"><img src="idt6UroIn0_1769829086727.svg" alt="Netcore"></div>
-  <div class="logo-box"><img src="idxq8SaZnR_1769829063770.svg" alt="Freshworks"></div>
-  <div class="logo-box"><img src="ideA555_no_1769829039775.svg" alt="Capgemini"></div>
-  <div class="logo-box"><img src="idTi07iyIh_1769829017321.svg" alt="Oracle"></div>
-  <div class="logo-box"><img src="idMvE3tua4_logos.svg" alt="Infosys"></div>
+ <div class="logo-carousel">
+  <div class="logo-track">
+    <div class="logo-box"><img src="idt6UroIn0_1769829086727.svg" alt="Netcore Cloud"></div>
+    <div class="logo-box"><img src="idxq8SaZnR_1769829063770.svg" alt="Freshworks"></div>
+    <div class="logo-box"><img src="idB4errRd8_1769861034676.svg" alt="Sakon"></div>
+    <div class="logo-box"><img src="id4ebBkiKL_1769861010817.svg" alt="Synechron"></div>
+    <div class="logo-box"><img src="ideA555_no_1769829039775.svg" alt="Capgemini"></div>
+    <div class="logo-box"><img src="idTi07iyIh_1769829017321.svg" alt="Oracle"></div>
+    <div class="logo-box"><img src="idMvE3tua4_logos.svg" alt="Infosys"></div>
+
+    <!-- duplicate for smooth loop -->
+    <div class="logo-box"><img src="idt6UroIn0_1769829086727.svg" alt="Netcore Cloud"></div>
+    <div class="logo-box"><img src="idxq8SaZnR_1769829063770.svg" alt="Freshworks"></div>
+    <div class="logo-box"><img src="idB4errRd8_1769861034676.svg" alt="Sakon"></div>
+    <div class="logo-box"><img src="id4ebBkiKL_1769861010817.svg" alt="Synechron"></div>
+    <div class="logo-box"><img src="ideA555_no_1769829039775.svg" alt="Capgemini"></div>
+    <div class="logo-box"><img src="idTi07iyIh_1769829017321.svg" alt="Oracle"></div>
+    <div class="logo-box"><img src="idMvE3tua4_logos.svg" alt="Infosys"></div>
+  </div>
  </div>
-
- <!-- VERBATIM LOGO DETAILS -->
-
- 
-
- 
-
- 
-
- 
-
- 
 </section>
+
 
 <section class="container">
  <h2>Recognitions & Awards</h2>
@@ -181,32 +292,7 @@ footer{
  <span class="badge">IIM Visakhapatnam – AI for Leadership (Starting Feb 2026)</span>
 </section>
 
-<section class="container">
- <h2>LinkedIn Recommendations</h2>
- <div class="grid-2">
-  <blockquote>
-   <p>"Harish is one of the finest professionals you can collaborate with. His work ethics, attention for detail, hunger for mutual success and shared ownership to drive positive change are second to none. The overall thought process and maturity he brings to the table are valuable assets that am sure everyone will benefit from. I wish him the very best in all his endeavours"</p>
-   <cite>CEO, Cognisaas</cite>
-  </blockquote>
 
-  <blockquote>
-   <p>"Harish and I have worked closely on multiple projects while he was leading project management at Sakon. He is highly motivated and passionate about his work. He possess a strong domain knowledge and have great attention to details. He has a very strategic approach to project management and always an advocate of technology use for efficiency and transperancy. His diverse experience in various markets definitely helps to better plan and manage large implementations successfully. It was a pleasure working with Harish and wish him all the best in his new role!"</p>
-   <cite>Senior Director, Sakon Inc</cite>
-  </blockquote>
-
-  <blockquote>
-   <p>"Harish is a hardworking , dedicated , client friendly and content rich personality . 
-In one of the project for providing biller solutions to one of the major payment service provider in the US , he exhibited his domain skills along with testing knowledge ,that made a huge difference for us . He is capable of not only producing metrics he produced business value KPIs which was overwhelmingly appreciated both by our management and by the client . 
-His exceptional problem solving skills along with clear articulation skills are highly adorable . I like the way of his challenging for the benefit of the project . He is really an asset to any organisation"</p>
-   <cite>Vice President, Capgemini</cite>
-  </blockquote>
-
-  <blockquote>
-   <p>"Harish is an outstanding Program Manager for the testing of a 25 million dollar project. This is inclusive of both QA and UAT testing. In addition Harish is responsible for reporting to Senior Leaders at the program level and coordinating between many different groups in the organization. Harish defined the testing strategy and managed through a multitude of core obstacles at many levels to achieve success. He is the reason our project is successful. I would work with Harish in a heartbeat."</p>
-   <cite>Senior Vice President, Wells Fargo</cite>
-  </blockquote>
- </div>
-</section>
 
 <section class="container">
  <h2>Engage</h2>
