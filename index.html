@@ -1,4 +1,6 @@
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -283,6 +285,51 @@ footer{
  font-size:14px;
 }
 
+
+.industry-grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+ gap:24px;
+ margin-top:24px;
+}
+
+.industry-tile{
+ background:#ffffff;
+ border-radius:14px;
+ padding:20px;
+ box-shadow:0 8px 24px rgba(0,0,0,0.06);
+}
+
+.industry-icon{
+ font-size:26px;
+ margin-bottom:10px;
+}
+
+.industry-tile h4{
+ color:#0B2C4D;
+ margin-bottom:6px;
+}
+
+
+.icon-SaaS{background:url('icons/saas.svg') no-repeat center;}
+.icon-ENT{background:url('icons/enterprise.svg') no-repeat center;}
+.icon-BFSI{background:url('icons/bfsi.svg') no-repeat center;}
+.icon-TEL{background:url('icons/telecom.svg') no-repeat center;}
+.icon-CX{background:url('icons/cx.svg') no-repeat center;}
+
+.industry-icon{
+ width:36px;
+ height:36px;
+ margin-bottom:12px;
+ background-size:contain;
+}
+
+
+.industry-icon svg{
+ width:36px;
+ height:36px;
+}
+
 </style>
 
 
@@ -297,7 +344,7 @@ footer{
    Global Delivery & Transformation Leader | SaaS, Digital & Enterprise Programs
   </p>
   <p style="color:#cbd5f5;max-width:820px;">
-   20+ years leading global delivery, SaaS implementations, and enterprise programs with strong focus on Business outcomes, execution predictability, stakeholder relationship building and pragmatic AI adoption.
+   20+ years leading global delivery, SaaS implementations, and enterprise programs with strong focus on execution predictability, CSAT improvement, revenue alignment, and pragmatic AI adoption.
   </p>
  </div>
 </header>
@@ -331,18 +378,18 @@ footer{
   </div>
   <div class="impact-card">
    <span class="icon">$</span>
-   <h4>50% → 90% On Time Revenue Realization improvement</h4>
+   <h4>~90% Revenue Realization</h4>
    <p>Improved PO-to-billing conversion through tighter delivery-to-finance alignment</p>
   </div>
   <div class="impact-card">
    <span class="icon">🔄</span>
-   <h4>60% → 80% Conversion improvement</h4>
+   <h4>60% → 95% Conversion</h4>
    <p>Significant improvement in PO-to-billing conversion, reducing revenue leakage</p>
   </div>
   <div class="impact-card">
    <span class="icon">🛡️</span>
    <h4>Drop Protection</h4>
-   <p>Reduced customer churn by 10% through structured onboarding and proactive risk management</p>
+   <p>Reduced customer churn through structured onboarding and proactive risk management</p>
   </div>
   <div class="impact-card">
    <span class="icon">⏱️</span>
@@ -353,6 +400,66 @@ footer{
    <span class="icon">🤖</span>
    <h4>AI-Assisted Delivery</h4>
    <p>Early risk identification and data-driven decision-making through pragmatic AI adoption</p>
+  </div>
+ </div>
+</section>
+
+<section class="container">
+ <h2>Delivery Experience Across Industries</h2>
+ <div class="industry-grid">
+  <div class="industry-tile">
+   <div class="industry-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="#0B2C4D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+<path d="M18 10a4 4 0 0 0-8 0"/>
+<path d="M6 14a4 4 0 0 0 0 8h11a3 3 0 0 0 1-5"/>
+</svg>
+</div>
+   <h4>SaaS & MarTech</h4><style>.industry-tile:nth-child(1) svg{stroke:#0B2C4D;}</style>
+   <p>Delivery of customer engagement platforms focused on onboarding, adoption, and scalable execution in high-growth environments.</p>
+  </div>
+
+  <div class="industry-tile">
+   <div class="industry-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="#0B2C4D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 2l7 4v6c0 5-3 8-7 10-4-2-7-5-7-10V6l7-4z"/>
+</svg>
+</div>
+   <h4>Banking & Financial Services (BFSI)</h4><style>.industry-tile:nth-child(3) svg{stroke:#8C6D1F;}</style>
+   <p>Delivery leadership across core banking, lending, treasury, and payments with strong governance and risk controls.</p>
+  </div>
+
+  <div class="industry-tile">
+   <div class="industry-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="#0B2C4D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+<rect x="3" y="3" width="18" height="5"/>
+<rect x="5" y="10" width="14" height="5"/>
+<rect x="7" y="17" width="10" height="4"/>
+</svg>
+</div>
+   <h4>Enterprise Software</h4><style>.industry-tile:nth-child(2) svg{stroke:#274C77;}</style>
+   <p>Large-scale enterprise implementations and upgrades in multi-vendor, globally distributed delivery environments.</p>
+  </div>
+
+  <div class="industry-tile">
+   <div class="industry-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="#0B2C4D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="2"/>
+<path d="M2 12h8M14 12h8M12 2v8M12 14v8"/>
+</svg>
+</div>
+   <h4>Telecom & Expense Management</h4><style>.industry-tile:nth-child(4) svg{stroke:#3A5F7D;}</style>
+   <p>Global rollout and transformation programs involving complex integrations and geographically distributed stakeholders.</p>
+  </div>
+
+  <div class="industry-tile">
+   <div class="industry-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="#0B2C4D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 3a9 9 0 1 0 9 9"/>
+<path d="M12 7v5l4 2"/>
+</svg>
+</div>
+   <h4>Digital & Customer Experience Platforms</h4><style>.industry-tile:nth-child(5) svg{stroke:#3E7C59;}</style>
+   <p>CX and analytics-driven delivery programs focused on measurable customer and business outcomes.</p>
   </div>
  </div>
 </section>
@@ -420,10 +527,10 @@ footer{
 <section class="container">
  <h2>Engage</h2>
  <p>
-  Open to senior global delivery leadership roles where absolute ownership towards customer outcomes, business & strategic alignment and execution discipline are critical to scale.
+  Open to senior global delivery leadership roles where revenue realization, customer outcomes, and execution discipline are critical to scale.
  </p>
  <div class="engage-actions">
-  <a href="HNprofile-Feb2026.pdf" class="cta-button" download>Download Resume (PDF)</a>
+  <a href="Harish_Nagarajan_ATS_PRISM_v2.pdf" class="cta-button" download>Download Resume (PDF)</a>
   <a href="https://www.linkedin.com/in/harishnagarajan" class="cta-button secondary" target="_blank">Connect on LinkedIn</a>
  </div>
 </section>
