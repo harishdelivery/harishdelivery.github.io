@@ -314,7 +314,7 @@
             color: var(--gray);
         }
 
-        /* Experience Carousel */
+        /* Company Logo Carousel with SVG - UPDATED for 7 companies */
         .logo-carousel {
             width: 100%;
             overflow: hidden;
@@ -324,14 +324,14 @@
 
         .logo-track {
             display: flex;
-            animation: scroll 30s linear infinite;
-            width: calc(250px * 14);
+            animation: scroll 40s linear infinite;
+            width: calc(200px * 14); /* 7 logos duplicated = 14 total */
         }
 
         .logo-item {
             flex: 0 0 auto;
-            width: 220px;
-            height: 120px;
+            width: 180px;
+            height: 100px;
             margin-right: 2rem;
             background-color: white;
             border-radius: var(--border-radius);
@@ -342,68 +342,75 @@
             padding: 1.5rem;
         }
 
-        .logo-placeholder {
-            font-weight: 600;
-            color: var(--primary);
-            font-size: 1.1rem;
+        .logo-item img {
+            max-width: 140px;
+            max-height: 70px;
+            object-fit: contain;
+            filter: grayscale(30%);
+            transition: var(--transition);
+        }
+
+        .logo-item:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.05);
         }
 
         @keyframes scroll {
             0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-250px * 7)); }
+            100% { transform: translateX(calc(-180px * 7)); } /* Move 7 logos */
         }
 
-        /* Testimonials */
-        .testimonial-container {
-            max-width: 900px;
-            margin: 3rem auto 0;
+        /* Awards Section - Simplified */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .award-card {
             background-color: white;
             border-radius: var(--border-radius);
-            padding: 3rem;
+            padding: 1.8rem;
             box-shadow: var(--box-shadow);
-            position: relative;
+            border-left: 4px solid var(--accent);
+            transition: var(--transition);
         }
 
-        .testimonial-container::before {
-            content: '"';
-            position: absolute;
-            top: -30px;
-            left: 30px;
-            font-size: 8rem;
-            color: var(--light-gray);
-            font-family: serif;
-            line-height: 1;
+        .award-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
-        .testimonial-text {
+        .award-title {
             font-size: 1.2rem;
-            font-style: italic;
-            color: var(--dark);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .testimonial-author img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .author-info h4 {
+            font-weight: 600;
             color: var(--primary);
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.5rem;
         }
 
-        .author-info p {
-            color: var(--gray);
+        .award-company {
+            color: var(--secondary);
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        /* Certifications */
+        .certifications {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .cert-badge {
+            background-color: rgba(0, 163, 224, 0.1);
+            color: var(--accent);
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
             font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid rgba(0, 163, 224, 0.2);
         }
 
         /* Footer */
@@ -491,7 +498,7 @@
                 font-size: 1.8rem;
             }
             
-            .prism-container, .testimonial-container {
+            .prism-container {
                 padding: 2rem;
             }
             
@@ -505,6 +512,21 @@
                 max-width: 300px;
                 justify-content: center;
             }
+            
+            .logo-item {
+                width: 150px;
+                height: 90px;
+                margin-right: 1.5rem;
+            }
+            
+            .logo-track {
+                width: calc(150px * 14);
+            }
+            
+            @keyframes scroll {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(calc(-150px * 7)); }
+            }
         }
 
         @media (max-width: 576px) {
@@ -516,13 +538,23 @@
                 font-size: 2rem;
             }
             
-            .prism-grid, .metrics-grid {
+            .prism-grid, .metrics-grid, .awards-grid {
                 grid-template-columns: 1fr;
             }
             
             .logo-item {
-                width: 180px;
-                height: 100px;
+                width: 140px;
+                height: 80px;
+                margin-right: 1rem;
+            }
+            
+            .logo-track {
+                width: calc(140px * 14);
+            }
+            
+            @keyframes scroll {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(calc(-140px * 7)); }
             }
         }
     </style>
@@ -537,6 +569,7 @@
                 <a href="#prism">PRISM Model</a>
                 <a href="#impact">Impact</a>
                 <a href="#experience">Experience</a>
+                <a href="#awards">Awards</a>
                 <a href="#contact">Contact</a>
             </nav>
         </div>
@@ -634,7 +667,7 @@
         </div>
     </section>
 
-    <!-- Experience Carousel -->
+    <!-- Experience Carousel with SVG Logos - UPDATED with only 7 companies -->
     <section id="experience" style="background-color: var(--light);">
         <div class="container">
             <h2 class="section-title">Organizations & Delivery Environments</h2>
@@ -642,72 +675,113 @@
             
             <div class="logo-carousel">
                 <div class="logo-track">
+                    <!-- Your 7 Companies - First Set -->
                     <div class="logo-item">
-                        <div class="logo-placeholder">NETCORE CLOUD</div>
+                        <div class="company-name">Netcore Cloud</div>
+                        <!-- Replace with: <img src="idt6UroIn0_1769829086727.svg" alt="Netcore Cloud"> -->
                     </div>
                     <div class="logo-item">
-                        <div class="logo-placeholder">FRESHWORKS</div>
+                        <div class="company-name">Freshworks</div>
+                        <!-- Replace with: <img src="idxq8SaZnR_1769829063770.svg" alt="Freshworks"> -->
                     </div>
                     <div class="logo-item">
-                        <div class="logo-placeholder">SAKON</div>
+                        <div class="company-name">Capgemini</div>
+                        <!-- Replace with: <img src="ideA555_no_1769829039775.svg" alt="Capgemini"> -->
                     </div>
                     <div class="logo-item">
-                        <div class="logo-placeholder">SYNECHRON</div>
+                        <div class="company-name">Synechron</div>
+                        <!-- Replace with: <img src="id4ebBkiKL_1769861010817.svg" alt="Synechron"> -->
                     </div>
                     <div class="logo-item">
-                        <div class="logo-placeholder">CAPGEMINI</div>
+                        <div class="company-name">Sakon</div>
+                        <!-- Replace with: <img src="idB4errRd8_1769861034676.svg" alt="Sakon"> -->
                     </div>
                     <div class="logo-item">
-                        <div class="logo-placeholder">ORACLE</div>
+                        <div class="company-name">Oracle</div>
+                        <!-- Replace with: <img src="idTi07iyIh_1769829017321.svg" alt="Oracle"> -->
                     </div>
                     <div class="logo-item">
-                        <div class="logo-placeholder">INFOSYS</div>
+                        <div class="company-name">Infosys</div>
+                        <!-- Replace with: <img src="idMvE3tua4_logos.svg" alt="Infosys"> -->
                     </div>
-                    <!-- Duplicate for seamless loop -->
+                    
+                    <!-- Duplicate for seamless loop - Second Set -->
                     <div class="logo-item">
-                        <div class="logo-placeholder">NETCORE CLOUD</div>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-placeholder">FRESHWORKS</div>
-                    </div>
-                    <div class="logo-item">
-                        <div class="logo-placeholder">SAKON</div>
+                        <div class="company-name">Netcore Cloud</div>
                     </div>
                     <div class="logo-item">
-                        <div class="logo-placeholder">SYNECHRON</div>
+                        <div class="company-name">Freshworks</div>
                     </div>
                     <div class="logo-item">
-                        <div class="logo-placeholder">CAPGEMINI</div>
+                        <div class="company-name">Capgemini</div>
                     </div>
                     <div class="logo-item">
-                        <div class="logo-placeholder">ORACLE</div>
+                        <div class="company-name">Synechron</div>
                     </div>
                     <div class="logo-item">
-                        <div class="logo-placeholder">INFOSYS</div>
+                        <div class="company-name">Sakon</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="company-name">Oracle</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="company-name">Infosys</div>
                     </div>
                 </div>
             </div>
+            
+            <!-- SVG Integration Instructions -->
+            <div style="text-align: center; margin-top: 2rem; padding: 1rem; background-color: rgba(0, 163, 224, 0.05); border-radius: var(--border-radius);">
+                <p style="color: var(--gray); font-size: 0.9rem;">
+                    <i class="fas fa-info-circle"></i> 
+                    <strong>To use your SVG logos:</strong> Replace the text placeholders with your SVG files:<br>
+                    <code style="font-size: 0.8rem; background: rgba(0,0,0,0.05); padding: 0.2rem 0.4rem; border-radius: 3px;">idt6UroIn0_1769829086727.svg</code> for Netcore Cloud, 
+                    <code style="font-size: 0.8rem; background: rgba(0,0,0,0.05); padding: 0.2rem 0.4rem; border-radius: 3px;">idxq8SaZnR_1769829063770.svg</code> for Freshworks, etc.
+                </p>
+            </div>
+            
+            <style>
+                .company-name {
+                    font-weight: 600;
+                    color: var(--primary);
+                    text-align: center;
+                    font-size: 0.9rem;
+                }
+            </style>
         </div>
     </section>
 
-    <!-- Testimonial Section -->
-    <section class="container">
-        <h2 class="section-title">Recognitions & Awards</h2>
-        <p class="section-subtitle">Industry recognition for delivery excellence and transformational leadership.</p>
+    <!-- Awards & Recognition Section - Simplified -->
+    <section id="awards" class="container">
+        <h2 class="section-title">Awards & Recognitions</h2>
+        <p class="section-subtitle">Industry recognition for exceptional delivery leadership and transformational impact.</p>
         
-        <div class="testimonial-container">
-            <p class="testimonial-text">"Harish consistently delivers exceptional results through disciplined execution and strategic foresight. His ability to transform delivery operations while maintaining focus on customer outcomes and revenue alignment is truly remarkable."</p>
-            <div class="testimonial-author">
-                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Executive Reference">
-                <div class="author-info">
-                    <h4>Senior Executive, Fortune 500 Technology Firm</h4>
-                    <p>Awarded "Game Changer" and "Bronze Star" at Capgemini, "We Applaud" at Oracle</p>
-                </div>
+        <div class="awards-grid">
+            <div class="award-card">
+                <div class="award-title">We Applaud Award</div>
+                <div class="award-company">Oracle</div>
             </div>
+            <div class="award-card">
+                <div class="award-title">Game Changer Award</div>
+                <div class="award-company">Capgemini</div>
+            </div>
+            <div class="award-card">
+                <div class="award-title">Bronze Star Award</div>
+                <div class="award-company">Capgemini</div>
+            </div>
+        </div>
+        
+        <!-- Certifications -->
+        <h3 style="margin-top: 3rem; color: var(--primary);">Certifications & Continuous Learning</h3>
+        <div class="certifications">
+            <span class="cert-badge">PMP – Project Management Professional</span>
+            <span class="cert-badge">IIM Visakhapatnam – AI for Leadership (Starting Feb 2026)</span>
+            <span class="cert-badge">Certified Scrum Master</span>
+            <span class="cert-badge">ITIL Foundation Certification</span>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section - UPDATED WITH YOUR EMAIL -->
     <section id="contact" style="background-color: var(--primary); color: white;">
         <div class="container">
             <h2 class="section-title" style="color: white;">Engage with Me</h2>
@@ -718,12 +792,27 @@
             <div class="cta-buttons">
                 <a href="Harish_Nagarajan_ATS_PRISM_v2.pdf" class="btn btn-primary" download style="background-color: var(--accent); border-color: var(--accent);"><i class="fas fa-download"></i> Download Resume (PDF)</a>
                 <a href="https://www.linkedin.com/in/harishnagarajan" class="btn btn-secondary" target="_blank" style="border-color: rgba(255, 255, 255, 0.5);"><i class="fab fa-linkedin"></i> Connect on LinkedIn</a>
-                <a href="mailto:harish@example.com" class="btn btn-secondary" style="border-color: rgba(255, 255, 255, 0.5);"><i class="fas fa-envelope"></i> Email Me</a>
+                <a href="mailto:harishdelivery.cx@gmail.com" class="btn btn-secondary" style="border-color: rgba(255, 255, 255, 0.5);"><i class="fas fa-envelope"></i> Email Me</a>
+            </div>
+            
+            <!-- Email Display -->
+            <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background-color: rgba(255, 255, 255, 0.1); border-radius: var(--border-radius);">
+                <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 0.5rem;">
+                    <i class="fas fa-envelope-open-text"></i> <strong>Direct Email:</strong>
+                </p>
+                <p style="font-size: 1.1rem;">
+                    <a href="mailto:harishdelivery.cx@gmail.com" style="color: var(--accent); text-decoration: none; font-weight: 600;">
+                        harishdelivery.cx@gmail.com
+                    </a>
+                </p>
+                <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; margin-top: 1rem;">
+                    Available for executive discussions on delivery leadership, transformation initiatives, and global program management.
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer - UPDATED WITH YOUR EMAIL -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -732,24 +821,23 @@
                     <p>Global Delivery & Transformation Leader specializing in SaaS, Digital & Enterprise Programs with 20+ years of experience driving business outcomes through delivery excellence.</p>
                     <div class="social-links">
                         <a href="https://www.linkedin.com/in/harishnagarajan" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fas fa-envelope"></i></a>
+                        <a href="mailto:harishdelivery.cx@gmail.com"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
-                    <h3>Certifications</h3>
-                    <p>• PMP – Project Management Professional</p>
-                    <p>• IIM Visakhapatnam – AI for Leadership (Starting Feb 2026)</p>
-                    <p>• Certified Scrum Master</p>
-                    <p>• ITIL Foundation Certification</p>
+                    <h3>Contact Information</h3>
+                    <p><i class="fas fa-envelope" style="margin-right: 0.5rem;"></i> harishdelivery.cx@gmail.com</p>
+                    <p><i class="fab fa-linkedin" style="margin-right: 0.5rem;"></i> linkedin.com/in/harishnagarajan</p>
+                    <p style="margin-top: 1rem; color: rgba(255, 255, 255, 0.8);">Based in Bangalore, India</p>
+                    <p style="color: rgba(255, 255, 255, 0.8);">Open to global opportunities</p>
                 </div>
                 <div class="footer-column">
-                    <h3>Core Expertise</h3>
-                    <p>• Global Delivery Leadership</p>
-                    <p>• SaaS Implementation & Scaling</p>
-                    <p>• Revenue Realization & Alignment</p>
-                    <p>• Pragmatic AI Adoption</p>
-                    <p>• Multi-Vendor Program Management</p>
+                    <h3>Delivery Focus Areas</h3>
+                    <p>• Execution Predictability</p>
+                    <p>• CSAT Improvement</p>
+                    <p>• Delivery-to-Finance Alignment</p>
+                    <p>• Early Risk Identification</p>
+                    <p>• Scalable Operating Models</p>
                 </div>
             </div>
             <div class="footer-bottom">
