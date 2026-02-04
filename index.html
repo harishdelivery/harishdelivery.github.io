@@ -425,7 +425,7 @@
             color: var(--gray);
         }
 
-        /* FIXED: Company Logo Carousel with TEXT PLACEHOLDERS */
+        /* FIXED: Company Logo Carousel - CORRECTED */
         .logo-carousel {
             width: 100%;
             overflow: hidden;
@@ -436,11 +436,12 @@
 
         .logo-track {
             display: flex;
-            animation: scroll 35s linear infinite;
+            animation: scroll 40s linear infinite;
+            width: max-content;
         }
 
         .logo-item {
-            flex: 0 0 auto;
+            flex-shrink: 0;
             width: 180px;
             height: 100px;
             margin: 0 2rem;
@@ -474,9 +475,14 @@
             transform: scale(1.05);
         }
 
+        /* FIXED: Correct animation calculation */
         @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-180px * 7 - 4rem * 7)); }
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-180px * 7 - 4rem * 7));
+            }
         }
 
         /* Awards Section */
@@ -628,9 +634,14 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             
+            /* Updated animation for mobile */
             @keyframes scroll {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(calc(-150px * 7 - 3rem * 7)); }
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(calc(-150px * 7 - 3rem * 7));
+                }
             }
         }
 
@@ -657,9 +668,14 @@
                 margin: 0 1rem;
             }
             
+            /* Updated animation for small mobile */
             @keyframes scroll {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(calc(-140px * 7 - 2rem * 7)); }
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(calc(-140px * 7 - 2rem * 7));
+                }
             }
         }
     </style>
@@ -856,7 +872,7 @@
         </div>
     </section>
 
-    <!-- FIXED: Experience Carousel with TEXT PLACEHOLDERS (no duplicate tags) -->
+    <!-- FIXED: Experience Carousel with TEXT PLACEHOLDERS (HTML SYNTAX CORRECTED) -->
     <section id="experience" style="background-color: var(--light);">
         <div class="container">
             <h2 class="section-title">Organizations & Delivery Environments</h2>
@@ -864,30 +880,30 @@
             
             <div class="logo-carousel">
                 <div class="logo-track">
-                    <!-- Your 7 Companies - First Set (TEXT PLACEHOLDERS ONLY) -->
+                    <!-- First Set - Text Placeholders -->
                     <div class="logo-item">
-                        <img src="idt6UroIn0_1769829086727.svg">Netcore Cloud</div>
+                        <div class="logo-placeholder">Netcore Cloud</div>
                     </div>
                     <div class="logo-item">
-                        <img src="idxq8SaZnR_1769829063770.svg" alt="Freshworks"</div>
+                        <div class="logo-placeholder">Freshworks</div>
                     </div>
                     <div class="logo-item">
-                        <img src="ideA555_no_1769829039775.svg">Capgemini</div>
+                        <div class="logo-placeholder">Capgemini</div>
                     </div>
                     <div class="logo-item">
-                        <img src="id4ebBkiKL_1769861010817.svg">Synechron</div>
+                        <div class="logo-placeholder">Synechron</div>
                     </div>
                     <div class="logo-item">
-                        <img src="idB4errRd8_1769861034676.svg">Sakon</div>
+                        <div class="logo-placeholder">Sakon</div>
                     </div>
                     <div class="logo-item">
-                        <img src=idTi07iyIh_1769829017321.svg">Oracle</div>
+                        <div class="logo-placeholder">Oracle</div>
                     </div>
                     <div class="logo-item">
-                        <img src="idMvE3tua4_logos.svg">Infosys</div>
+                        <div class="logo-placeholder">Infosys</div>
                     </div>
                     
-                    <!-- Duplicate for seamless loop - Second Set (TEXT PLACEHOLDERS ONLY) -->
+                    <!-- Duplicate Set for Seamless Loop -->
                     <div class="logo-item">
                         <div class="logo-placeholder">Netcore Cloud</div>
                     </div>
@@ -912,11 +928,12 @@
                 </div>
             </div>
             
-            <!-- SVG Replacement Instructions -->
+            <!-- Instructions for SVG Logos -->
             <div style="text-align: center; margin-top: 2rem; padding: 1rem; background-color: rgba(0, 163, 224, 0.05); border-radius: var(--border-radius);">
                 <p style="color: var(--gray); font-size: 0.9rem;">
                     <i class="fas fa-info-circle"></i> 
-                    <strong>To add SVG logos:</strong> Replace text placeholders with <code>&lt;img src="filename.svg" alt="Company Name"&gt;</code>
+                    <strong>To add actual logos:</strong> Replace text placeholders with 
+                    <code>&lt;img src="your-logo.svg" alt="Company Name"&gt;</code>
                 </p>
             </div>
         </div>
@@ -1013,4 +1030,14 @@
         }
 
         // Add scroll effect to header
-       
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if(window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
