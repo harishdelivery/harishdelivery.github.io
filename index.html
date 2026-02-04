@@ -314,25 +314,25 @@
             color: var(--gray);
         }
 
-        /* Company Logo Carousel with SVG - UPDATED for 7 companies */
+        /* FIXED: Company Logo Carousel */
         .logo-carousel {
             width: 100%;
             overflow: hidden;
             position: relative;
             margin-top: 2rem;
+            padding: 1rem 0;
         }
 
         .logo-track {
             display: flex;
-            animation: scroll 40s linear infinite;
-            width: calc(200px * 14); /* 7 logos duplicated = 14 total */
+            animation: scroll 35s linear infinite;
         }
 
         .logo-item {
             flex: 0 0 auto;
             width: 180px;
             height: 100px;
-            margin-right: 2rem;
+            margin: 0 2rem;
             background-color: white;
             border-radius: var(--border-radius);
             display: flex;
@@ -355,9 +355,10 @@
             transform: scale(1.05);
         }
 
+        /* FIXED: Correct animation calculation */
         @keyframes scroll {
             0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-180px * 7)); } /* Move 7 logos */
+            100% { transform: translateX(calc(-180px * 7 - 4rem * 7)); }
         }
 
         /* Awards Section - Simplified */
@@ -516,16 +517,12 @@
             .logo-item {
                 width: 150px;
                 height: 90px;
-                margin-right: 1.5rem;
-            }
-            
-            .logo-track {
-                width: calc(150px * 14);
+                margin: 0 1.5rem;
             }
             
             @keyframes scroll {
                 0% { transform: translateX(0); }
-                100% { transform: translateX(calc(-150px * 7)); }
+                100% { transform: translateX(calc(-150px * 7 - 3rem * 7)); }
             }
         }
 
@@ -545,16 +542,12 @@
             .logo-item {
                 width: 140px;
                 height: 80px;
-                margin-right: 1rem;
-            }
-            
-            .logo-track {
-                width: calc(140px * 14);
+                margin: 0 1rem;
             }
             
             @keyframes scroll {
                 0% { transform: translateX(0); }
-                100% { transform: translateX(calc(-140px * 7)); }
+                100% { transform: translateX(calc(-140px * 7 - 2rem * 7)); }
             }
         }
     </style>
@@ -667,7 +660,7 @@
         </div>
     </section>
 
-    <!-- Experience Carousel with SVG Logos - UPDATED with only 7 companies -->
+    <!-- FIXED: Experience Carousel with SVG Logos -->
     <section id="experience" style="background-color: var(--light);">
         <div class="container">
             <h2 class="section-title">Organizations & Delivery Environments</h2>
@@ -675,78 +668,55 @@
             
             <div class="logo-carousel">
                 <div class="logo-track">
-                    <!-- Your 7 Companies - First Set -->
+                    <!-- Your 7 Companies - First Set (WITH IMAGES ONLY) -->
                     <div class="logo-item">
-                    <img src="idt6UroIn0_1769829086727.svg" alt="Netcore Cloud">
+                        <img src="idt6UroIn0_1769829086727.svg" alt="Netcore Cloud">
                     </div>
                     <div class="logo-item">
-                        <div class="company-name">Freshworks</div>
                         <img src="idxq8SaZnR_1769829063770.svg" alt="Freshworks">
                     </div>
                     <div class="logo-item">
-                        <div class="company-name">Capgemini</div>
                         <img src="ideA555_no_1769829039775.svg" alt="Capgemini">
                     </div>
                     <div class="logo-item">
-                        <div class="company-name">Synechron</div>
                         <img src="id4ebBkiKL_1769861010817.svg" alt="Synechron">
                     </div>
                     <div class="logo-item">
-                        <div class="company-name">Sakon</div>
                         <img src="idB4errRd8_1769861034676.svg" alt="Sakon">
                     </div>
                     <div class="logo-item">
-                        <div class="company-name">Oracle</div>
                         <img src="idTi07iyIh_1769829017321.svg" alt="Oracle">
                     </div>
                     <div class="logo-item">
-                        <div class="company-name">Infosys</div>
                         <img src="idMvE3tua4_logos.svg" alt="Infosys">
                     </div>
                     
-                    <!-- Duplicate for seamless loop - Second Set -->
+                    <!-- Duplicate for seamless loop - Second Set (SAME IMAGES) -->
                     <div class="logo-item">
-                        <div class="company-name">Netcore Cloud</div>
+                        <img src="idt6UroIn0_1769829086727.svg" alt="Netcore Cloud">
                     </div>
                     <div class="logo-item">
-                        <div class="company-name">Freshworks</div>
+                        <img src="idxq8SaZnR_1769829063770.svg" alt="Freshworks">
                     </div>
                     <div class="logo-item">
-                        <div class="company-name">Capgemini</div>
+                        <img src="ideA555_no_1769829039775.svg" alt="Capgemini">
                     </div>
                     <div class="logo-item">
-                        <div class="company-name">Synechron</div>
+                        <img src="id4ebBkiKL_1769861010817.svg" alt="Synechron">
                     </div>
                     <div class="logo-item">
-                        <div class="company-name">Sakon</div>
+                        <img src="idB4errRd8_1769861034676.svg" alt="Sakon">
                     </div>
                     <div class="logo-item">
-                        <div class="company-name">Oracle</div>
+                        <img src="idTi07iyIh_1769829017321.svg" alt="Oracle">
                     </div>
                     <div class="logo-item">
-                        <div class="company-name">Infosys</div>
+                        <img src="idMvE3tua4_logos.svg" alt="Infosys">
                     </div>
                 </div>
             </div>
             
-            <!-- SVG Integration Instructions -->
-            <div style="text-align: center; margin-top: 2rem; padding: 1rem; background-color: rgba(0, 163, 224, 0.05); border-radius: var(--border-radius);">
-                <p style="color: var(--gray); font-size: 0.9rem;">
-                    <i class="fas fa-info-circle"></i> 
-                    <strong>To use your SVG logos:</strong> Replace the text placeholders with your SVG files:<br>
-                    <code style="font-size: 0.8rem; background: rgba(0,0,0,0.05); padding: 0.2rem 0.4rem; border-radius: 3px;">idt6UroIn0_1769829086727.svg</code> for Netcore Cloud, 
-                    <code style="font-size: 0.8rem; background: rgba(0,0,0,0.05); padding: 0.2rem 0.4rem; border-radius: 3px;">idxq8SaZnR_1769829063770.svg</code> for Freshworks, etc.
-                </p>
-            </div>
-            
-            <style>
-                .company-name {
-                    font-weight: 600;
-                    color: var(--primary);
-                    text-align: center;
-                    font-size: 0.9rem;
-                }
-            </style>
+            <!-- Removed instruction box as it's no longer needed -->
         </div>
     </section>
 
@@ -778,7 +748,7 @@
         </div>
     </section>
 
-    <!-- Contact Section - UPDATED WITH YOUR EMAIL -->
+    <!-- FIXED: Contact Section - Email only in CTA button -->
     <section id="contact" style="background-color: var(--primary); color: white;">
         <div class="container">
             <h2 class="section-title" style="color: white;">Engage with Me</h2>
@@ -792,24 +762,11 @@
                 <a href="mailto:harishdelivery.cx@gmail.com" class="btn btn-secondary" style="border-color: rgba(255, 255, 255, 0.5);"><i class="fas fa-envelope"></i> Email Me</a>
             </div>
             
-            <!-- Email Display -->
-            <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background-color: rgba(255, 255, 255, 0.1); border-radius: var(--border-radius);">
-                <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 0.5rem;">
-                    <i class="fas fa-envelope-open-text"></i> <strong>Direct Email:</strong>
-                </p>
-                <p style="font-size: 1.1rem;">
-                    <a href="mailto:harishdelivery.cx@gmail.com" style="color: var(--accent); text-decoration: none; font-weight: 600;">
-                        harishdelivery.cx@gmail.com
-                    </a>
-                </p>
-                <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; margin-top: 1rem;">
-                    Available for executive discussions on delivery leadership, transformation initiatives, and global program management.
-                </p>
-            </div>
+            <!-- Removed the explicit email display box -->
         </div>
     </section>
 
-    <!-- Footer - UPDATED WITH YOUR EMAIL -->
+    <!-- FIXED: Footer - Email only in contact link -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -823,10 +780,9 @@
                 </div>
                 <div class="footer-column">
                     <h3>Contact Information</h3>
-                    <p><i class="fas fa-envelope" style="margin-right: 0.5rem;"></i> harishdelivery.cx@gmail.com</p>
                     <p><i class="fab fa-linkedin" style="margin-right: 0.5rem;"></i> linkedin.com/in/harishnagarajan</p>
-                    <p style="margin-top: 1rem; color: rgba(255, 255, 255, 0.8);">Based in Bangalore, India</p>
-                    <p style="color: rgba(255, 255, 255, 0.8);">Open to global opportunities</p>
+                    <p><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i> Based in Bangalore, India</p>
+                    <p><i class="fas fa-globe" style="margin-right: 0.5rem;"></i> Open to global opportunities</p>
                 </div>
                 <div class="footer-column">
                     <h3>Delivery Focus Areas</h3>
@@ -886,8 +842,18 @@
                 header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
             }
         });
+        
+        // Fix for carousel width calculation
+        window.addEventListener('load', function() {
+            const logoItems = document.querySelectorAll('.logo-item');
+            const track = document.querySelector('.logo-track');
+            if (logoItems.length > 0 && track) {
+                const itemWidth = logoItems[0].offsetWidth;
+                const itemMargin = 32; // 2rem = 32px
+                const totalWidth = (itemWidth + itemMargin) * logoItems.length;
+                track.style.width = totalWidth + 'px';
+            }
+        });
     </script>
 </body>
 </html>
-
-
