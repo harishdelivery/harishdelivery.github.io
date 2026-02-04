@@ -425,7 +425,7 @@
             color: var(--gray);
         }
 
-        /* Company Logo Carousel with TEXT PLACEHOLDERS */
+        /* FIXED: Company Logo Carousel with TEXT PLACEHOLDERS */
         .logo-carousel {
             width: 100%;
             overflow: hidden;
@@ -866,10 +866,10 @@
                 <div class="logo-track">
                     <!-- Your 7 Companies - First Set (TEXT PLACEHOLDERS ONLY) -->
                     <div class="logo-item">
-                        <img src="idt6UroIn0_1769829086727.svg" alt="Netcore Cloud">
+                        <img src="idt6UroIn0_1769829086727.svg">Netcore Cloud</div>
                     </div>
                     <div class="logo-item">
-                        <img src="idxq8SaZnR_1769829063770.svg">Freshworks</div>
+                        <img src="idxq8SaZnR_1769829063770.svg" alt="Freshworks"</div>
                     </div>
                     <div class="logo-item">
                         <img src="ideA555_no_1769829039775.svg">Capgemini</div>
@@ -881,7 +881,7 @@
                         <img src="idB4errRd8_1769861034676.svg">Sakon</div>
                     </div>
                     <div class="logo-item">
-                        <img src="idTi07iyIh_1769829017321.svg">Oracle</div>
+                        <img src=idTi07iyIh_1769829017321.svg">Oracle</div>
                     </div>
                     <div class="logo-item">
                         <img src="idMvE3tua4_logos.svg">Infosys</div>
@@ -889,25 +889,25 @@
                     
                     <!-- Duplicate for seamless loop - Second Set (TEXT PLACEHOLDERS ONLY) -->
                     <div class="logo-item">
-                        <img src="idt6UroIn0_1769829086727.svg" alt="Netcore Cloud">
+                        <div class="logo-placeholder">Netcore Cloud</div>
                     </div>
                     <div class="logo-item">
-                        <img src="idxq8SaZnR_1769829063770.svg">Freshworks</div>
+                        <div class="logo-placeholder">Freshworks</div>
                     </div>
                     <div class="logo-item">
-                        <img src="ideA555_no_1769829039775.svg">Capgemini</div>
+                        <div class="logo-placeholder">Capgemini</div>
                     </div>
                     <div class="logo-item">
-                        <img src="id4ebBkiKL_1769861010817.svg">Synechron</div>
+                        <div class="logo-placeholder">Synechron</div>
                     </div>
                     <div class="logo-item">
-                        <img src="idB4errRd8_1769861034676.svg">Sakon</div>
+                        <div class="logo-placeholder">Sakon</div>
                     </div>
                     <div class="logo-item">
-                        <img src="idTi07iyIh_1769829017321.svg">Oracle</div>
+                        <div class="logo-placeholder">Oracle</div>
                     </div>
                     <div class="logo-item">
-                        <img src="idMvE3tua4_logos.svg">Infosys</div>
+                        <div class="logo-placeholder">Infosys</div>
                     </div>
                 </div>
             </div>
@@ -1013,29 +1013,4 @@
         }
 
         // Add scroll effect to header
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.padding = '0.5rem 0';
-                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.padding = '1rem 0';
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-            }
-        });
-        
-        // Fix for carousel width calculation
-        window.addEventListener('load', function() {
-            const logoItems = document.querySelectorAll('.logo-item');
-            const track = document.querySelector('.logo-track');
-            if (logoItems.length > 0 && track) {
-                const itemWidth = logoItems[0].offsetWidth;
-                const itemMargin = 32; // 2rem = 32px
-                const totalWidth = (itemWidth + itemMargin) * logoItems.length;
-                track.style.width = totalWidth + 'px';
-            }
-        });
-    </script>
-</body>
-</html>
-
+       
