@@ -425,18 +425,39 @@
             color: var(--gray);
         }
 
-        /* FIXED: Company Logo Carousel - CORRECTED */
+        /* FIXED: Company Logo Carousel - IMPROVED */
         .logo-carousel {
             width: 100%;
             overflow: hidden;
             position: relative;
             margin-top: 2rem;
-            padding: 1rem 0;
+            padding: 1.5rem 0;
+        }
+
+        .logo-carousel::before,
+        .logo-carousel::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .logo-carousel::before {
+            left: 0;
+            background: linear-gradient(90deg, var(--light) 0%, transparent 100%);
+        }
+
+        .logo-carousel::after {
+            right: 0;
+            background: linear-gradient(270deg, var(--light) 0%, transparent 100%);
         }
 
         .logo-track {
             display: flex;
-            animation: scroll 40s linear infinite;
+            animation: scroll 30s linear infinite;
             width: max-content;
         }
 
@@ -444,7 +465,7 @@
             flex-shrink: 0;
             width: 180px;
             height: 100px;
-            margin: 0 2rem;
+            margin: 0 1.5rem;
             background-color: white;
             border-radius: var(--border-radius);
             display: flex;
@@ -453,13 +474,22 @@
             box-shadow: var(--box-shadow);
             padding: 1.5rem;
             position: relative;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .logo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+            border-color: var(--accent);
         }
 
         .logo-placeholder {
             font-weight: 600;
             color: var(--primary);
-            font-size: 0.9rem;
+            font-size: 1rem;
             text-align: center;
+            padding: 0.5rem;
         }
 
         .logo-item img {
@@ -475,13 +505,13 @@
             transform: scale(1.05);
         }
 
-        /* FIXED: Correct animation calculation */
+        /* FIXED: Correct animation calculation - SIMPLIFIED */
         @keyframes scroll {
             0% {
                 transform: translateX(0);
             }
             100% {
-                transform: translateX(calc(-180px * 7 - 4rem * 7));
+                transform: translateX(calc(-50%));
             }
         }
 
@@ -577,6 +607,17 @@
             font-size: 0.9rem;
         }
 
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
         /* Responsive Design */
         @media (max-width: 992px) {
             .hero h1 {
@@ -597,8 +638,26 @@
                 font-size: 1.1rem;
             }
             
+            .mobile-menu-btn {
+                display: block;
+            }
+            
             .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--primary);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
                 display: none;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                display: flex;
             }
             
             .section-title {
@@ -623,7 +682,7 @@
             .logo-item {
                 width: 150px;
                 height: 90px;
-                margin: 0 1.5rem;
+                margin: 0 1rem;
             }
             
             .case-studies-grid {
@@ -640,7 +699,7 @@
                     transform: translateX(0);
                 }
                 100% {
-                    transform: translateX(calc(-150px * 7 - 3rem * 7));
+                    transform: translateX(calc(-50%));
                 }
             }
         }
@@ -665,7 +724,7 @@
             .logo-item {
                 width: 140px;
                 height: 80px;
-                margin: 0 1rem;
+                margin: 0 0.8rem;
             }
             
             /* Updated animation for small mobile */
@@ -674,7 +733,7 @@
                     transform: translateX(0);
                 }
                 100% {
-                    transform: translateX(calc(-140px * 7 - 2rem * 7));
+                    transform: translateX(calc(-50%));
                 }
             }
         }
@@ -685,6 +744,11 @@
     <header>
         <div class="container header-container">
             <a href="#" class="logo">HARISH<span>NAGARAJAN</span></a>
+            
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
             <nav class="nav-links">
                 <a href="#profile">Profile</a>
                 <a href="#prism">PRISM Model</a>
@@ -872,7 +936,7 @@
         </div>
     </section>
 
-    <!-- FIXED: Experience Carousel with TEXT PLACEHOLDERS (HTML SYNTAX CORRECTED) -->
+    <!-- FIXED: Experience Carousel - NOW WORKING PROPERLY -->
     <section id="experience" style="background-color: var(--light);">
         <div class="container">
             <h2 class="section-title">Organizations & Delivery Environments</h2>
@@ -1026,6 +1090,23 @@
             
             logoTrack.addEventListener('mouseleave', () => {
                 logoTrack.style.animationPlayState = 'running';
+            });
+        }
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if(mobileMenuBtn && navLinks) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                });
             });
         }
 
