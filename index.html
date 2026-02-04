@@ -210,6 +210,86 @@
             margin-bottom: 3rem;
         }
 
+        /* UPDATED: Industry Verticals Section - SIMPLIFIED */
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .industry-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 2rem 1.5rem;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--accent);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 180px;
+        }
+
+        .industry-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .industry-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .industry-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        /* UPDATED: Case Studies Section - PLACEHOLDERS ONLY */
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .case-study-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .case-study-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .case-study-placeholder {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .case-study-placeholder i {
+            font-size: 3rem;
+            color: var(--light-gray);
+            margin-bottom: 1rem;
+        }
+
         /* PRISM Model Section */
         .prism-container {
             background-color: var(--light);
@@ -314,7 +394,7 @@
             color: var(--gray);
         }
 
-        /* FIXED: Company Logo Carousel */
+        /* FIXED: Company Logo Carousel with SVG PLACEHOLDERS */
         .logo-carousel {
             width: 100%;
             overflow: hidden;
@@ -340,6 +420,14 @@
             justify-content: center;
             box-shadow: var(--box-shadow);
             padding: 1.5rem;
+            position: relative;
+        }
+
+        .logo-placeholder {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+            text-align: center;
         }
 
         .logo-item img {
@@ -355,13 +443,12 @@
             transform: scale(1.05);
         }
 
-        /* FIXED: Correct animation calculation */
         @keyframes scroll {
             0% { transform: translateX(0); }
             100% { transform: translateX(calc(-180px * 7 - 4rem * 7)); }
         }
 
-        /* Awards Section - Simplified */
+        /* Awards Section */
         .awards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -414,58 +501,40 @@
             border: 1px solid rgba(0, 163, 224, 0.2);
         }
 
-        /* Footer */
+        /* Footer - SIMPLIFIED */
         footer {
             background-color: var(--primary);
             color: white;
-            padding: 4rem 0 2rem;
+            padding: 3rem 0 1.5rem;
         }
 
         .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column {
+            max-width: 600px;
         }
 
         .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
             color: white;
         }
 
         .footer-column p {
             color: rgba(255, 255, 255, 0.7);
             margin-bottom: 1.5rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            background-color: var(--accent);
-            transform: translateY(-3px);
+            line-height: 1.6;
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 2rem;
+            padding-top: 1.5rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
@@ -520,6 +589,10 @@
                 margin: 0 1.5rem;
             }
             
+            .case-studies-grid {
+                grid-template-columns: 1fr;
+            }
+            
             @keyframes scroll {
                 0% { transform: translateX(0); }
                 100% { transform: translateX(calc(-150px * 7 - 3rem * 7)); }
@@ -535,7 +608,7 @@
                 font-size: 2rem;
             }
             
-            .prism-grid, .metrics-grid, .awards-grid {
+            .prism-grid, .metrics-grid, .awards-grid, .industries-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -561,6 +634,8 @@
                 <a href="#profile">Profile</a>
                 <a href="#prism">PRISM Model</a>
                 <a href="#impact">Impact</a>
+                <a href="#industries">Industries</a>
+                <a href="#case-studies">Case Studies</a>
                 <a href="#experience">Experience</a>
                 <a href="#awards">Awards</a>
                 <a href="#contact">Contact</a>
@@ -660,7 +735,79 @@
         </div>
     </section>
 
-    <!-- FIXED: Experience Carousel with SVG Logos -->
+    <!-- UPDATED: Industry Verticals Section - SIMPLIFIED with only names and logos -->
+    <section id="industries" style="background-color: var(--light);">
+        <div class="container">
+            <h2 class="section-title">Industry Verticals Expertise</h2>
+            <p class="section-subtitle">Deep expertise in delivering transformational outcomes across specific business domains.</p>
+            
+            <div class="industries-grid">
+                <!-- 1. Banking & Financial Services -->
+                <div class="industry-card">
+                    <div class="industry-icon">🏦</div>
+                    <h3>Banking & Financial Services</h3>
+                </div>
+                
+                <!-- 2. Marketing Automation -->
+                <div class="industry-card">
+                    <div class="industry-icon">📈</div>
+                    <h3>Marketing Automation</h3>
+                </div>
+                
+                <!-- 3. SaaS Implementation -->
+                <div class="industry-card">
+                    <div class="industry-icon">☁️</div>
+                    <h3>SaaS Implementation</h3>
+                </div>
+                
+                <!-- 4. Telecom Expense Management -->
+                <div class="industry-card">
+                    <div class="industry-icon">📱</div>
+                    <h3>Telecom Expense Management</h3>
+                </div>
+                
+                <!-- 5. Retail & CPG Automation -->
+                <div class="industry-card">
+                    <div class="industry-icon">🛒</div>
+                    <h3>Retail & CPG Automation</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UPDATED: Case Studies Section - PLACEHOLDERS ONLY -->
+    <section id="case-studies" class="container">
+        <h2 class="section-title">Select Case Studies</h2>
+        <p class="section-subtitle">Real-world examples of delivery leadership driving measurable business impact.</p>
+        
+        <div class="case-studies-grid">
+            <!-- Case Study 1 - Placeholder -->
+            <div class="case-study-card">
+                <div class="case-study-placeholder">
+                    <i class="fas fa-file-alt"></i>
+                    <p>Case Study Details Coming Soon</p>
+                </div>
+            </div>
+            
+            <!-- Case Study 2 - Placeholder -->
+            <div class="case-study-card">
+                <div class="case-study-placeholder">
+                    <i class="fas fa-chart-line"></i>
+                    <p>Case Study Details Coming Soon</p>
+                </div>
+            </div>
+            
+            <!-- Case Study 3 - Placeholder -->
+            <div class="case-study-card">
+                <div class="case-study-placeholder">
+                    <i class="fas fa-project-diagram"></i>
+                    <p>Case Study Details Coming Soon</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FIXED: Experience Carousel with TEXT PLACEHOLDERS (for SVG files) -->
     <section id="experience" style="background-color: var(--light);">
         <div class="container">
             <h2 class="section-title">Organizations & Delivery Environments</h2>
@@ -668,59 +815,64 @@
             
             <div class="logo-carousel">
                 <div class="logo-track">
-                    <!-- Your 7 Companies - First Set (WITH IMAGES ONLY) -->
+                    <!-- Your 7 Companies - First Set -->
                     <div class="logo-item">
-                        <img src="idt6UroIn0_1769829086727.svg" alt="Netcore Cloud">
+                        <div class="logo-placeholder">Netcore Cloud</div>
+                        <!-- Replace with: <img src="idt6UroIn0_1769829086727.svg" alt="Netcore Cloud"> -->
                     </div>
                     <div class="logo-item">
-                        <img src="idxq8SaZnR_1769829063770.svg" alt="Freshworks">
+                        <div class="logo-placeholder">Freshworks</div>
+                        <!-- Replace with: <img src="idxq8SaZnR_1769829063770.svg" alt="Freshworks"> -->
                     </div>
                     <div class="logo-item">
-                        <img src="ideA555_no_1769829039775.svg" alt="Capgemini">
+                        <div class="logo-placeholder">Capgemini</div>
+                        <!-- Replace with: <img src="ideA555_no_1769829039775.svg" alt="Capgemini"> -->
                     </div>
                     <div class="logo-item">
-                        <img src="id4ebBkiKL_1769861010817.svg" alt="Synechron">
+                        <div class="logo-placeholder">Synechron</div>
+                        <!-- Replace with: <img src="id4ebBkiKL_1769861010817.svg" alt="Synechron"> -->
                     </div>
                     <div class="logo-item">
-                        <img src="idB4errRd8_1769861034676.svg" alt="Sakon">
+                        <div class="logo-placeholder">Sakon</div>
+                        <!-- Replace with: <img src="idB4errRd8_1769861034676.svg" alt="Sakon"> -->
                     </div>
                     <div class="logo-item">
-                        <img src="idTi07iyIh_1769829017321.svg" alt="Oracle">
+                        <div class="logo-placeholder">Oracle</div>
+                        <!-- Replace with: <img src="idTi07iyIh_1769829017321.svg" alt="Oracle"> -->
                     </div>
                     <div class="logo-item">
-                        <img src="idMvE3tua4_logos.svg" alt="Infosys">
+                        <div class="logo-placeholder">Infosys</div>
+                        <!-- Replace with: <img src="idMvE3tua4_logos.svg" alt="Infosys"> -->
                     </div>
                     
-                    <!-- Duplicate for seamless loop - Second Set (SAME IMAGES) -->
+                    <!-- Duplicate for seamless loop - Second Set -->
                     <div class="logo-item">
-                        <img src="idt6UroIn0_1769829086727.svg" alt="Netcore Cloud">
+                        <div class="logo-placeholder">Netcore Cloud</div>
                     </div>
                     <div class="logo-item">
-                        <img src="idxq8SaZnR_1769829063770.svg" alt="Freshworks">
+                        <div class="logo-placeholder">Freshworks</div>
                     </div>
                     <div class="logo-item">
-                        <img src="ideA555_no_1769829039775.svg" alt="Capgemini">
+                        <div class="logo-placeholder">Capgemini</div>
                     </div>
                     <div class="logo-item">
-                        <img src="id4ebBkiKL_1769861010817.svg" alt="Synechron">
+                        <div class="logo-placeholder">Synechron</div>
                     </div>
                     <div class="logo-item">
-                        <img src="idB4errRd8_1769861034676.svg" alt="Sakon">
+                        <div class="logo-placeholder">Sakon</div>
                     </div>
                     <div class="logo-item">
-                        <img src="idTi07iyIh_1769829017321.svg" alt="Oracle">
+                        <div class="logo-placeholder">Oracle</div>
                     </div>
                     <div class="logo-item">
-                        <img src="idMvE3tua4_logos.svg" alt="Infosys">
+                        <div class="logo-placeholder">Infosys</div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Removed instruction box as it's no longer needed -->
         </div>
     </section>
 
-    <!-- Awards & Recognition Section - Simplified -->
+    <!-- Awards & Recognition Section -->
     <section id="awards" class="container">
         <h2 class="section-title">Awards & Recognitions</h2>
         <p class="section-subtitle">Industry recognition for exceptional delivery leadership and transformational impact.</p>
@@ -748,7 +900,7 @@
         </div>
     </section>
 
-    <!-- FIXED: Contact Section - Email only in CTA button -->
+    <!-- Contact Section - NO SOCIAL LINKS (removed as requested) -->
     <section id="contact" style="background-color: var(--primary); color: white;">
         <div class="container">
             <h2 class="section-title" style="color: white;">Engage with Me</h2>
@@ -761,17 +913,21 @@
                 <a href="https://www.linkedin.com/in/harishnagarajan" class="btn btn-secondary" target="_blank" style="border-color: rgba(255, 255, 255, 0.5);"><i class="fab fa-linkedin"></i> Connect on LinkedIn</a>
                 <a href="mailto:harishdelivery.cx@gmail.com" class="btn btn-secondary" style="border-color: rgba(255, 255, 255, 0.5);"><i class="fas fa-envelope"></i> Email Me</a>
             </div>
-            
-            <!-- Removed the explicit email display box -->
         </div>
     </section>
 
-    <!-- FIXED: Footer - Email only in contact link -->
+    <!-- SIMPLIFIED Footer - NO SOCIAL LINKS -->
     <footer>
-                                          </div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Harish Nagarajan</h3>
+                    <p>Global Delivery & Transformation Leader specializing in SaaS, Digital & Enterprise Programs with 20+ years of experience driving business outcomes through delivery excellence.</p>
+                </div>
+            </div>
             <div class="footer-bottom">
                 <p>© 2026 Harish Nagarajan | Global Delivery Leader. All rights reserved.</p>
-                            </div>
+            </div>
         </div>
     </footer>
 
@@ -832,5 +988,3 @@
     </script>
 </body>
 </html>
-
-
