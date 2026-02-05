@@ -294,7 +294,7 @@
             font-weight: 600;
         }
 
-        /* Case Studies */
+        /* Case Studies - FIXED ALIGNMENT */
         .case-studies-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -308,10 +308,10 @@
             overflow: hidden;
             box-shadow: var(--box-shadow);
             transition: var(--transition);
-            min-height: 280px;
+            min-height: 360px; /* Increased for better alignment */
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
+            justify-content: space-between; /* Changed from flex-start to space-between */
             align-items: center;
             text-align: center;
             padding: var(--space-xl);
@@ -682,6 +682,10 @@
             .case-studies-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .case-study-card {
+                min-height: 320px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -924,26 +928,7 @@
                     </div>
                     
                     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1rem;">
-                        <!-- Row 1: Onboarding Cycle Time -->
-                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                >100 days
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                Before: Onboarding
-                            </div>
-                        </div>
-                        
-                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                50% faster
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                After: Onboarding
-                            </div>
-                        </div>
-                        
-                        <!-- Row 2: First Time Right (FTR) -->
+                        <!-- Row 1: First Time Right (FTR) -->
                         <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
                             <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
                                 High issues
@@ -962,7 +947,7 @@
                             </div>
                         </div>
                         
-                        <!-- Row 3: Product Performance -->
+                        <!-- Row 2: Product Performance -->
                         <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
                             <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
                                 Quality issues
@@ -981,25 +966,22 @@
                             </div>
                         </div>
                         
-                        <!-- Row 4: Escalation Reduction -->
-                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c; grid-column: span 2;">
-                            <div style="display: flex; justify-content: space-between; align-items: center;">
-                                <div>
-                                    <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                        Regular CXO escalations
-                                    </div>
-                                    <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                        Before: Escalation Frequency
-                                    </div>
-                                </div>
-                                <div style="text-align: right;">
-                                    <div style="font-size: 1.1rem; font-weight: 700; color: #28a745; margin-bottom: 0.25rem;">
-                                        -70% reduction
-                                    </div>
-                                    <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                        After: Escalation Reduction
-                                    </div>
-                                </div>
+                        <!-- Row 3: Escalation Reduction (now split into two boxes) -->
+                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                Regular CXO escalations
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                Before: Escalation Frequency
+                            </div>
+                        </div>
+                        
+                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                -70% reduction
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                After: Escalation Reduction
                             </div>
                         </div>
                     </div>
@@ -1297,8 +1279,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer Section REMOVED as requested -->
 
     <script>
         // Smooth scrolling for navigation links
