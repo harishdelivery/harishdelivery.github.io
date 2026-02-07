@@ -294,7 +294,7 @@
             font-weight: 600;
         }
 
-        /* Case Studies - FIXED ALIGNMENT */
+        /* Case Studies - IMPROVED ALIGNMENT */
         .case-studies-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -308,12 +308,12 @@
             overflow: hidden;
             box-shadow: var(--box-shadow);
             transition: var(--transition);
-            min-height: 360px; /* Increased for better alignment */
+            min-height: 400px; /* Adjusted for better alignment */
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Changed from flex-start to space-between */
-            align-items: center;
-            text-align: center;
+            justify-content: space-between;
+            align-items: stretch;
+            text-align: left;
             padding: var(--space-xl);
         }
 
@@ -322,7 +322,7 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
         }
 
-        /* PRISM Model */
+        /* PRISM Model - IMPROVED ALIGNMENT */
         .prism-container {
             background-color: var(--light);
             border-radius: var(--border-radius);
@@ -339,7 +339,7 @@
 
         .prism-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: var(--space-md);
         }
 
@@ -350,6 +350,10 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
             transition: var(--transition);
             border-top: 3px solid transparent;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .prism-item:hover {
@@ -389,7 +393,7 @@
             line-height: 1.5;
         }
 
-        /* Impact Metrics */
+        /* Impact Metrics - IMPROVED ALIGNMENT */
         .metrics-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -404,6 +408,10 @@
             text-align: center;
             box-shadow: var(--box-shadow);
             transition: var(--transition);
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .metric-card:hover {
@@ -516,7 +524,7 @@
             100% { transform: translateX(calc(-50%)); }
         }
 
-        /* Awards */
+        /* Awards - IMPROVED ALIGNMENT */
         .awards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -531,6 +539,10 @@
             box-shadow: var(--box-shadow);
             border-left: 3px solid var(--accent);
             transition: var(--transition);
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .award-card:hover {
@@ -609,6 +621,15 @@
             .section-title {
                 font-size: 1.75rem;
             }
+
+            /* Adjust grid layouts for tablet */
+            .case-studies-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .prism-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
@@ -683,8 +704,12 @@
                 grid-template-columns: 1fr;
             }
             
+            .prism-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
             .case-study-card {
-                min-height: 320px;
+                min-height: 380px;
             }
         }
 
@@ -727,6 +752,14 @@
             
             .prism-container {
                 padding: var(--space-lg);
+            }
+            
+            .case-study-card {
+                min-height: 360px;
+            }
+            
+            .prism-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -906,7 +939,7 @@
             <div class="case-study-card">
                 <div style="width: 100%; text-align: left;">
                     <h3 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; font-weight: 600;">
-                        Enterprise Client Onboarding & Escalation Management
+                        Medium-Enterprise Client Onboarding & Escalation Management
                     </h3>
                     
                     <div style="margin-bottom: 1rem;">
@@ -1160,7 +1193,7 @@
                 </div>
             </div>
             
-            <!-- Case Study 4: Digital Transformation of Auto Financing Platform (NOW LAST) - ADJUSTED -->
+            <!-- Case Study 4: Digital Transformation of Auto Financing Platform (NOW LAST) -->
             <div class="case-study-card">
                 <div style="width: 100%; text-align: left;">
                     <h3 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; font-weight: 600;">
@@ -1189,7 +1222,7 @@
                         <!-- Row 1: Margin Achievement -->
                         <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
                             <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                Target margin 45%
+                                Target margin
                             </div>
                             <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
                                 Project Goal
