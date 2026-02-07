@@ -37,10 +37,6 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.5;
@@ -56,25 +52,13 @@
             padding: 0 var(--space-lg);
         }
 
-        /* Full-page sections */
-        .page-section {
-            min-height: 100vh;
-            padding: 80px 0 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-        }
-
         /* Header & Navigation */
         header {
             background: linear-gradient(135deg, var(--primary) 0%, #0d3a6d 100%);
             color: white;
             padding: 0.875rem 0;
-            position: fixed;
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
             z-index: 1000;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
@@ -131,15 +115,16 @@
             width: 100%;
         }
 
-        /* Hero Section */
+        /* Hero Section - Improved spacing */
         .hero {
             background: linear-gradient(rgba(10, 37, 64, 0.92), rgba(10, 37, 64, 0.96)), 
                         url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
             background-size: cover;
             background-position: center;
             color: white;
+            padding: 6rem 0 4rem; /* Increased top padding, reduced bottom */
             text-align: center;
-            padding-top: 100px;
+            margin-bottom: 2rem; /* Added margin to separate from next section */
         }
 
         .hero h1 {
@@ -209,6 +194,17 @@
             transform: translateY(-2px);
         }
 
+        /* Sections - Fixed overlapping with better spacing */
+        section {
+            padding: 5rem 0 4rem; /* Top 5rem, Bottom 4rem */
+            margin-bottom: 1rem; /* Added margin between sections */
+        }
+
+        /* Ensure proper spacing for specific sections */
+        #profile {
+            padding-top: 4rem; /* Less top padding since hero has bottom margin */
+        }
+
         .section-title {
             font-size: 1.875rem;
             font-weight: 700;
@@ -238,7 +234,95 @@
             line-height: 1.6;
         }
 
-        /* PRISM Model */
+        /* Industry Verticals */
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+
+        .industry-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: var(--space-lg) var(--space-md);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-top: 3px solid var(--accent);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 180px;
+        }
+
+        .industry-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .industry-icon-circle {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-sm);
+            font-size: 1.5rem;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+            transition: var(--transition);
+        }
+
+        .industry-card:hover .industry-icon-circle {
+            transform: scale(1.05);
+        }
+
+        .industry-icon-banking { background: linear-gradient(135deg, #0066CC, #0099FF); }
+        .industry-icon-marketing { background: linear-gradient(135deg, #FF6B6B, #FF8E8E); }
+        .industry-icon-saas { background: linear-gradient(135deg, #00A3E0, #4DC3FF); }
+        .industry-icon-telecom { background: linear-gradient(135deg, #9D65C9, #B886D9); }
+        .industry-icon-retail { background: linear-gradient(135deg, #28A745, #5CB85C); }
+
+        .industry-card h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin: 0;
+            line-height: 1.3;
+            font-weight: 600;
+        }
+
+        /* Case Studies - IMPROVED ALIGNMENT */
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+
+        .case-study-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            min-height: 400px; /* Adjusted for better alignment */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: stretch;
+            text-align: left;
+            padding: var(--space-xl);
+        }
+
+        .case-study-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        /* PRISM Model - IMPROVED ALIGNMENT */
         .prism-container {
             background-color: var(--light);
             border-radius: var(--border-radius);
@@ -266,6 +350,10 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
             transition: var(--transition);
             border-top: 3px solid transparent;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .prism-item:hover {
@@ -305,7 +393,7 @@
             line-height: 1.5;
         }
 
-        /* Impact Metrics */
+        /* Impact Metrics - IMPROVED ALIGNMENT */
         .metrics-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -320,6 +408,10 @@
             text-align: center;
             box-shadow: var(--box-shadow);
             transition: var(--transition);
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .metric-card:hover {
@@ -353,32 +445,86 @@
             margin-top: 0.5rem;
         }
 
-        /* Case Studies */
-        .case-studies-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-lg);
+        /* Company Logo Carousel */
+        .logo-carousel {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
             margin-top: var(--space-lg);
+            padding: var(--space-md) 0;
         }
 
-        .case-study-card {
+        .logo-carousel::before,
+        .logo-carousel::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 80px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .logo-carousel::before {
+            left: 0;
+            background: linear-gradient(90deg, var(--light) 0%, transparent 100%);
+        }
+
+        .logo-carousel::after {
+            right: 0;
+            background: linear-gradient(270deg, var(--light) 0%, transparent 100%);
+        }
+
+        .logo-track {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            width: max-content;
+        }
+
+        .logo-item {
+            flex-shrink: 0;
+            width: 160px;
+            height: 90px;
+            margin: 0 var(--space-md);
             background-color: white;
             border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-            padding: var(--space-xl);
-            height: 100%;
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--box-shadow);
+            padding: var(--space-md);
+            position: relative;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.04);
         }
 
-        .case-study-card:hover {
+        .logo-item:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            border-color: rgba(0, 163, 224, 0.2);
         }
 
-        /* Awards */
+        .logo-img {
+            max-width: 130px;
+            max-height: 60px;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            opacity: 0.85;
+            transition: var(--transition);
+        }
+
+        .logo-item:hover .logo-img {
+            opacity: 1;
+            transform: scale(1.03);
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-50%)); }
+        }
+
+        /* Awards - IMPROVED ALIGNMENT */
         .awards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -393,6 +539,10 @@
             box-shadow: var(--box-shadow);
             border-left: 3px solid var(--accent);
             transition: var(--transition);
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .award-card:hover {
@@ -431,34 +581,12 @@
             border: 1px solid rgba(0, 163, 224, 0.15);
         }
 
-        /* Navigation dots */
-        .page-nav-dots {
-            position: fixed;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .nav-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: rgba(0, 163, 224, 0.3);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .nav-dot.active {
-            background-color: var(--accent);
-            transform: scale(1.2);
-        }
-
-        .nav-dot:hover {
-            background-color: var(--accent);
+        /* Contact Section - Last section without footer */
+        #contact {
+            background-color: var(--primary);
+            color: white;
+            padding: 5rem 0 5rem; /* Equal top and bottom padding */
+            margin-bottom: 0; /* No margin at the bottom */
         }
 
         /* Mobile Menu Button */
@@ -482,18 +610,31 @@
                 font-size: 1.05rem;
             }
             
+            section {
+                padding: 4rem 0 3rem;
+            }
+            
+            #profile {
+                padding-top: 3rem;
+            }
+            
             .section-title {
                 font-size: 1.75rem;
             }
+
+            /* Adjust grid layouts for tablet */
+            .case-studies-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
             
-            .page-nav-dots {
-                right: 10px;
+            .prism-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
 
         @media (max-width: 768px) {
             .hero {
-                padding-top: 80px;
+                padding: 5rem 0 3rem;
             }
             
             .hero h1 {
@@ -548,34 +689,77 @@
                 padding: 0.75rem 1.5rem;
             }
             
+            .logo-item {
+                width: 140px;
+                height: 80px;
+                margin: 0 var(--space-sm);
+            }
+            
+            .industries-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-sm);
+            }
+            
             .case-studies-grid {
                 grid-template-columns: 1fr;
             }
             
             .prism-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
             
-            .page-nav-dots {
-                display: none;
+            .case-study-card {
+                min-height: 380px;
             }
         }
 
         @media (max-width: 576px) {
+            .hero {
+                padding: 4rem 0 2.5rem;
+            }
+            
             .hero h1 {
                 font-size: 1.625rem;
             }
             
-            .page-section {
-                padding: 70px 0 50px;
+            section {
+                padding: 3rem 0 2.5rem;
             }
             
-            .metrics-grid, .awards-grid {
+            #profile {
+                padding-top: 2.5rem;
+            }
+            
+            .prism-grid, .metrics-grid, .awards-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .industries-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-sm);
+            }
+            
+            .logo-item {
+                width: 120px;
+                height: 70px;
+                margin: 0 var(--space-xs);
+                padding: var(--space-sm);
+            }
+            
+            .logo-img {
+                max-width: 100px;
             }
             
             .prism-container {
                 padding: var(--space-lg);
+            }
+            
+            .case-study-card {
+                min-height: 360px;
+            }
+            
+            .prism-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -591,22 +775,20 @@
             </button>
             
             <nav class="nav-links">
-                <a href="#home">Home</a>
                 <a href="#profile">Profile</a>
                 <a href="#prism">PRISM Model</a>
                 <a href="#impact">Impact</a>
+                <a href="#industries">Industries</a>
                 <a href="#case-studies">Case Studies</a>
+                <a href="#experience">Experience</a>
                 <a href="#awards">Awards</a>
                 <a href="#contact">Contact</a>
             </nav>
         </div>
     </header>
 
-    <!-- Navigation Dots -->
-    <div class="page-nav-dots" id="navDots"></div>
-
-    <!-- Page 1: Home/Hero -->
-    <section id="home" class="page-section hero">
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="container">
             <h1>Global Delivery & Transformation Leader</h1>
             <p class="hero-tagline">20+ years leading global delivery, SaaS implementations, and enterprise programs with strong focus on business outcomes, strategic alignment, execution rigor and pragmatic AI adoption.</p>
@@ -617,21 +799,19 @@
         </div>
     </section>
 
-    <!-- Page 2: Profile -->
-    <section id="profile" class="page-section" style="background-color: var(--light);">
-        <div class="container">
-            <h2 class="section-title">Executive Delivery Profile</h2>
-            <p class="section-subtitle">Senior global delivery leader focused on <span class="highlight">business outcomes enabled through delivery excellence</span>.</p>
-            
-            <div class="prism-container">
-                <p class="prism-intro">Extensive experience driving strategic & business outcomes and delivery predictability across complex, multi-vendor SaaS and enterprise environments. Recognized for establishing strong delivery governance, execution discipline, and scalable operating models as the foundation for sustainable business results.</p>
-                <p class="prism-intro">Leverages AI thoughtfully in a structured, outcome-driven manner to improve delivery intelligence, early risk identification, and decision support—while maintaining execution rigor.</p>
-            </div>
+    <!-- Executive Profile Section -->
+    <section id="profile" class="container">
+        <h2 class="section-title">Executive Delivery Profile</h2>
+        <p class="section-subtitle">Senior global delivery leader focused on <span class="highlight">business outcomes enabled through delivery excellence</span>.</p>
+        
+        <div class="prism-container">
+            <p class="prism-intro">Extensive experience driving strategic & business outcomes and delivery predictability across complex, multi-vendor SaaS and enterprise environments. Recognized for establishing strong delivery governance, execution discipline, and scalable operating models as the foundation for sustainable business results.</p>
+            <p class="prism-intro">Leverages AI thoughtfully in a structured, outcome-driven manner to improve delivery intelligence, early risk identification, and decision support—while maintaining execution rigor.</p>
         </div>
     </section>
 
-    <!-- Page 3: PRISM Model -->
-    <section id="prism" class="page-section">
+    <!-- PRISM Model Section -->
+    <section id="prism" style="background-color: var(--light);">
         <div class="container">
             <h2 class="section-title">Delivery Leadership Approach (PRISM)</h2>
             <p class="section-subtitle">My delivery leadership follows a <span class="highlight">PRISM</span> model—designed to drive predictable, scalable, and intelligence-led delivery outcomes across global programs.</p>
@@ -666,387 +846,433 @@
         </div>
     </section>
 
-    <!-- Page 4: Impact Metrics -->
-    <section id="impact" class="page-section" style="background-color: var(--light);">
+    <!-- Impact Metrics Section -->
+    <section id="impact" class="container">
+        <h2 class="section-title">Delivery Leadership Impact</h2>
+        <p class="section-subtitle">Measurable results achieved through disciplined execution and strategic delivery leadership.</p>
+        
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-icon">🙂</div>
+                <div class="metric-value">4.7 / 5</div>
+                <div class="metric-label">CSAT Score</div>
+                <p>High customer satisfaction driven by strong delivery governance</p>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon">$</div>
+                <div class="metric-value">90%</div>
+                <div class="metric-label">Revenue Realization</div>
+                <p>Improved on-time billing conversion through tighter delivery-to-finance alignment</p>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon">🔄</div>
+                <div class="metric-value">85%</div>
+                <div class="metric-label">Conversion Improvement</div>
+                <p>Significant improvement in PO-to-billing conversion, reducing revenue leakage</p>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon">⏱️</div>
+                <div class="metric-value">50%</div>
+                <div class="metric-label">Time-to-Market</div>
+                <p>Accelerated delivery through standardization and execution optimization</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Verticals Section -->
+    <section id="industries" style="background-color: var(--light);">
         <div class="container">
-            <h2 class="section-title">Delivery Leadership Impact</h2>
-            <p class="section-subtitle">Measurable results achieved through disciplined execution and strategic delivery leadership.</p>
+            <h2 class="section-title">Industry Verticals Expertise</h2>
+            <p class="section-subtitle">Deep expertise in delivering transformational outcomes across specific business domains.</p>
             
-            <div class="metrics-grid">
-                <div class="metric-card">
-                    <div class="metric-icon">🙂</div>
-                    <div class="metric-value">4.7 / 5</div>
-                    <div class="metric-label">CSAT Score</div>
-                    <p>High customer satisfaction driven by strong delivery governance</p>
+            <div class="industries-grid">
+                <!-- 1. Banking & Financial Services -->
+                <div class="industry-card">
+                    <div class="industry-icon-circle industry-icon-banking">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Banking & Financial Services</h3>
                 </div>
-                <div class="metric-card">
-                    <div class="metric-icon">$</div>
-                    <div class="metric-value">90%</div>
-                    <div class="metric-label">Revenue Realization</div>
-                    <p>Improved on-time billing conversion through tighter delivery-to-finance alignment</p>
+                
+                <!-- 2. Marketing Automation -->
+                <div class="industry-card">
+                    <div class="industry-icon-circle industry-icon-marketing">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Marketing Automation</h3>
                 </div>
-                <div class="metric-card">
-                    <div class="metric-icon">🔄</div>
-                    <div class="metric-value">85%</div>
-                    <div class="metric-label">Conversion Improvement</div>
-                    <p>Significant improvement in PO-to-billing conversion, reducing revenue leakage</p>
+                
+                <!-- 3. SaaS Implementation -->
+                <div class="industry-card">
+                    <div class="industry-icon-circle industry-icon-saas">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3>SaaS Implementation</h3>
                 </div>
-                <div class="metric-card">
-                    <div class="metric-icon">⏱️</div>
-                    <div class="metric-value">50%</div>
-                    <div class="metric-label">Time-to-Market</div>
-                    <p>Accelerated delivery through standardization and execution optimization</p>
+                
+                <!-- 4. Telecom Expense Management -->
+                <div class="industry-card">
+                    <div class="industry-icon-circle industry-icon-telecom">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Telecom Expense Management</h3>
+                </div>
+                
+                <!-- 5. Retail & CPG Automation -->
+                <div class="industry-card">
+                    <div class="industry-icon-circle industry-icon-retail">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>Retail & CPG Automation</h3>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Page 5: Case Studies - All 4 in correct order -->
-    <section id="case-studies" class="page-section">
-        <div class="container">
-            <h2 class="section-title">Select Case Studies</h2>
-            <p class="section-subtitle">Real-world examples of delivery leadership driving measurable business impact.</p>
+    <!-- Case Studies Section - REORDERED IN REVERSE -->
+    <section id="case-studies" class="container">
+        <h2 class="section-title">Select Case Studies</h2>
+        <p class="section-subtitle">Real-world examples of delivery leadership driving measurable business impact.</p>
+        
+        <div class="case-studies-grid">
+            <!-- Case Study 1: Onboarding & Escalation Management (NOW FIRST) -->
+            <div class="case-study-card">
+                <div style="width: 100%; text-align: left;">
+                    <h3 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; font-weight: 600;">
+                        Medium-Enterprise Client Onboarding & Escalation Management
+                    </h3>
+                    
+                    <div style="margin-bottom: 1rem;">
+                        <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
+                            Challenge
+                        </h4>
+                        <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
+                            Delayed onboarding (>100 days), quality issues, trust erosion, and regular CXO escalations.
+                        </p>
+                    </div>
+                    
+                    <div style="margin-bottom: 1rem;">
+                        <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
+                            Solution
+                        </h4>
+                        <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
+                            Data-driven prioritization, in-person client engagement, integration optimization, FTR validation, and war room fixes.
+                        </p>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1rem;">
+                        <!-- Row 1: First Time Right (FTR) -->
+                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                High issues
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                Before: FTR Rate
+                            </div>
+                        </div>
+                        
+                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                +75% uplift
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                After: FTR Rate
+                            </div>
+                        </div>
+                        
+                        <!-- Row 2: Product Performance -->
+                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                Quality issues
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                Before: Performance
+                            </div>
+                        </div>
+                        
+                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                +80% improvement
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                After: Performance
+                            </div>
+                        </div>
+                        
+                        <!-- Row 3: Escalation Reduction (now split into two boxes) -->
+                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                Regular CXO escalations
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                Before: Escalation Frequency
+                            </div>
+                        </div>
+                        
+                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                -70% reduction
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                After: Escalation Reduction
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
-            <div class="case-studies-grid">
-                <!-- Case Study 1: Enterprise Client Onboarding & Escalation Management -->
-                <div class="case-study-card">
-                    <div style="width: 100%; text-align: left;">
-                        <h3 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; font-weight: 600;">
-                            Medium-Enterprise Client Onboarding & Escalation Management
-                        </h3>
-                        
-                        <div style="margin-bottom: 1rem;">
-                            <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
-                                Challenge
-                            </h4>
-                            <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
-                                Delayed onboarding (>100 days), quality issues, trust erosion, and regular CXO escalations.
-                            </p>
+            <!-- Case Study 2: Marquee Customer Onboarding & Revenue Leakage (NOW SECOND) -->
+            <div class="case-study-card">
+                <div style="width: 100%; text-align: left;">
+                    <h3 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; font-weight: 600;">
+                        Marquee Customer Onboarding & Revenue Leakage Fix
+                    </h3>
+                    
+                    <div style="margin-bottom: 1rem;">
+                        <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
+                            Challenge
+                        </h4>
+                        <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
+                            Delayed onboarding, revenue leakage, and poor customer experience impacting business growth.
+                        </p>
+                    </div>
+                    
+                    <div style="margin-bottom: 1rem;">
+                        <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
+                            Solution
+                        </h4>
+                        <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
+                            Shift-left approach with early delivery involvement, deep dive with sales/presales, and pain-point specific use cases.
+                        </p>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1rem;">
+                        <!-- Row 1: NPS (Net Promoter Score) -->
+                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                -25
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                Before: NPS Score
+                            </div>
                         </div>
                         
-                        <div style="margin-bottom: 1rem;">
-                            <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
-                                Solution
-                            </h4>
-                            <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
-                                Data-driven prioritization, in-person client engagement, integration optimization, FTR validation, and war room fixes.
-                            </p>
+                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                +10
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                After: NPS Score
+                            </div>
                         </div>
                         
-                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1rem;">
-                            <!-- Row 1: First Time Right (FTR) -->
-                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    High issues
-                                </div>
-                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    Before: FTR Rate
-                                </div>
+                        <!-- Row 2: Time to Market -->
+                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                120 days
                             </div>
-                            
-                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    +75% uplift
-                                </div>
-                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    After: FTR Rate
-                                </div>
+                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                Before: Time to Market
                             </div>
-                            
-                            <!-- Row 2: Product Performance -->
-                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    Quality issues
-                                </div>
-                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    Before: Performance
-                                </div>
+                        </div>
+                        
+                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                60 days
                             </div>
-                            
-                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    +80% improvement
-                                </div>
-                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    After: Performance
-                                </div>
+                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                After: Time to Market
                             </div>
-                            
-                            <!-- Row 3: Escalation Reduction -->
-                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    Regular CXO escalations
-                                </div>
-                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    Before: Escalation Frequency
-                                </div>
+                        </div>
+                        
+                        <!-- Row 3: Revenue Leakage -->
+                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                50L/QoQ
                             </div>
-                            
-                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    -70% reduction
-                                </div>
-                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    After: Escalation Reduction
-                                </div>
+                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                Before: Revenue Leakage
+                            </div>
+                        </div>
+                        
+                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                85%
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                After: Revenue Improvement
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Case Study 2: Marquee Customer Onboarding & Revenue Leakage Fix -->
-                <div class="case-study-card">
-                    <div style="width: 100%; text-align: left;">
-                        <h3 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; font-weight: 600;">
-                            Marquee Customer Onboarding & Revenue Leakage Fix
-                        </h3>
-                        
-                        <div style="margin-bottom: 1rem;">
-                            <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
-                                Challenge
-                            </h4>
-                            <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
-                                Delayed onboarding, revenue leakage, and poor customer experience impacting business growth.
-                            </p>
+            </div>
+            
+            <!-- Case Study 3: AI Lending Management System (NOW THIRD) -->
+            <div class="case-study-card">
+                <div style="width: 100%; text-align: left;">
+                    <h3 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; font-weight: 600;">
+                        Agentic AI Lending Management System
+                    </h3>
+                    
+                    <div style="margin-bottom: 1rem;">
+                        <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
+                            Challenge
+                        </h4>
+                        <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
+                            Manual loan approval processes causing delays, human errors, and poor customer experience.
+                        </p>
+                    </div>
+                    
+                    <div style="margin-bottom: 1rem;">
+                        <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
+                            Solution
+                        </h4>
+                        <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
+                            Automated multi-agent AI system with controlled validation, exception approval routing, and HITL oversight.
+                        </p>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1rem;">
+                        <!-- Row 1: Underwriting Time -->
+                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                10-15 days
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                Before: Underwriting
+                            </div>
                         </div>
                         
-                        <div style="margin-bottom: 1rem;">
-                            <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
-                                Solution
-                            </h4>
-                            <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
-                                Shift-left approach with early delivery involvement, deep dive with sales/presales, and pain-point specific use cases.
-                            </p>
+                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                1-2 days
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                After: Underwriting
+                            </div>
                         </div>
                         
-                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1rem;">
-                            <!-- Row 1: NPS (Net Promoter Score) -->
-                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    -25
-                                </div>
-                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    Before: NPS Score
-                                </div>
+                        <!-- Row 2: Human Error Rate -->
+                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                15%
                             </div>
-                            
-                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    +10
-                                </div>
-                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    After: NPS Score
-                                </div>
+                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                Before: Error Rate
                             </div>
-                            
-                            <!-- Row 2: Time to Market -->
-                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    120 days
-                                </div>
-                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    Before: Time to Market
-                                </div>
+                        </div>
+                        
+                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                0%
                             </div>
-                            
-                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    60 days
-                                </div>
-                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    After: Time to Market
-                                </div>
+                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                After: Error Rate
                             </div>
-                            
-                            <!-- Row 3: Revenue Leakage -->
-                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    50L/QoQ
-                                </div>
-                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    Before: Revenue Leakage
-                                </div>
+                        </div>
+                        
+                        <!-- Row 3: Customer Satisfaction -->
+                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                65%
                             </div>
-                            
-                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    85%
-                                </div>
-                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    After: Revenue Improvement
-                                </div>
+                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                Before: CSAT
+                            </div>
+                        </div>
+                        
+                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                >95%
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                After: CSAT
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Case Study 3: AI Lending Management System -->
-                <div class="case-study-card">
-                    <div style="width: 100%; text-align: left;">
-                        <h3 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; font-weight: 600;">
-                            Agentic AI Lending Management System
-                        </h3>
-                        
-                        <div style="margin-bottom: 1rem;">
-                            <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
-                                Challenge
-                            </h4>
-                            <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
-                                Manual loan approval processes causing delays, human errors, and poor customer experience.
-                            </p>
-                        </div>
-                        
-                        <div style="margin-bottom: 1rem;">
-                            <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
-                                Solution
-                            </h4>
-                            <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
-                                Automated multi-agent AI system with controlled validation, exception approval routing, and HITL oversight.
-                            </p>
-                        </div>
-                        
-                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1rem;">
-                            <!-- Row 1: Underwriting Time -->
-                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    10-15 days
-                                </div>
-                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    Before: Underwriting
-                                </div>
-                            </div>
-                            
-                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    1-2 days
-                                </div>
-                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    After: Underwriting
-                                </div>
-                            </div>
-                            
-                            <!-- Row 2: Human Error Rate -->
-                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    15%
-                                </div>
-                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    Before: Error Rate
-                                </div>
-                            </div>
-                            
-                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    0%
-                                </div>
-                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    After: Error Rate
-                                </div>
-                            </div>
-                            
-                            <!-- Row 3: Customer Satisfaction -->
-                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    65%
-                                </div>
-                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    Before: CSAT
-                                </div>
-                            </div>
-                            
-                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    >95%
-                                </div>
-                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    After: CSAT
-                                </div>
-                            </div>
-                        </div>
+            </div>
+            
+            <!-- Case Study 4: Digital Transformation of Auto Financing Platform (NOW LAST) -->
+            <div class="case-study-card">
+                <div style="width: 100%; text-align: left;">
+                    <h3 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; font-weight: 600;">
+                        50 M USD - Digital Transformation of Auto Financing Platform
+                    </h3>
+                    
+                    <div style="margin-bottom: 1rem;">
+                        <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
+                            Challenge
+                        </h4>
+                        <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
+                            Migrate a COTS legacy platform to a new digital platform in a complex multi-vendor setup with high defect density (40% in critical modules), 100% hardcoded exception handling, and poor peak season performance causing dealer frustrations - all within strict time and cost parameters.
+                        </p>
                     </div>
-                </div>
-                
-                <!-- Case Study 4: Digital Transformation of Auto Financing Platform (LAST as prescribed) -->
-                <div class="case-study-card">
-                    <div style="width: 100%; text-align: left;">
-                        <h3 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; font-weight: 600;">
-                            50 M USD - Digital Transformation of Auto Financing Platform
-                        </h3>
-                        
-                        <div style="margin-bottom: 1rem;">
-                            <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
-                                Challenge
-                            </h4>
-                            <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
-                                Migrate a COTS legacy platform to a new digital platform in a complex multi-vendor setup with high defect density (40% in critical modules), 100% hardcoded exception handling, and poor peak season performance causing dealer frustrations - all within strict time and cost parameters.
-                            </p>
+                    
+                    <div style="margin-bottom: 1rem;">
+                        <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
+                            Solution
+                        </h4>
+                        <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
+                            Ownership of E2E test strategy with business-outcome based scenarios, workflow/rule based decision enablement, and seamless dealer network integration to drive zero production defects and 80% STP improvement.
+                        </p>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1rem;">
+                        <!-- Row 1: Margin Achievement -->
+                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                Target margin
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                Project Goal
+                            </div>
                         </div>
                         
-                        <div style="margin-bottom: 1rem;">
-                            <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
-                                Solution
-                            </h4>
-                            <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
-                                Ownership of E2E test strategy with business-outcome based scenarios, workflow/rule based decision enablement, and seamless dealer network integration to drive zero production defects and 80% STP improvement.
-                            </p>
+                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                40%
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                Margin Achievement
+                            </div>
                         </div>
                         
-                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1rem;">
-                            <!-- Row 1: Margin Achievement -->
-                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    Target margin
-                                </div>
-                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    Project Goal
-                                </div>
+                        <!-- Row 2: Production Defects -->
+                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                40% defect density
                             </div>
-                            
-                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    40%
-                                </div>
-                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    Margin Achievement
-                                </div>
+                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                Before: Critical Modules
                             </div>
-                            
-                            <!-- Row 2: Production Defects -->
-                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    40% defect density
-                                </div>
-                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    Before: Critical Modules
-                                </div>
+                        </div>
+                        
+                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                0 defects
                             </div>
-                            
-                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    0 defects
-                                </div>
-                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    All Sprint Releases
-                                </div>
+                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                All Sprint Releases
                             </div>
-                            
-                            <!-- Row 3: On-Time Delivery -->
-                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    Schedule pressure
-                                </div>
-                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    Multi-vendor complexity
-                                </div>
+                        </div>
+                        
+                        <!-- Row 3: On-Time Delivery -->
+                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                Schedule pressure
                             </div>
-                            
-                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    90% on-time
-                                </div>
-                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    Delivery Across Sprints
-                                </div>
+                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                Multi-vendor complexity
+                            </div>
+                        </div>
+                        
+                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                90% on-time
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                Delivery Across Sprints
                             </div>
                         </div>
                     </div>
@@ -1055,38 +1281,94 @@
         </div>
     </section>
 
-    <!-- Page 6: Awards & Recognition -->
-    <section id="awards" class="page-section" style="background-color: var(--light);">
+    <!-- Experience Carousel -->
+    <section id="experience" style="background-color: var(--light);">
         <div class="container">
-            <h2 class="section-title">Awards & Recognition</h2>
-            <p class="section-subtitle">Industry recognition for exceptional delivery leadership and transformational impact.</p>
+            <h2 class="section-title">Organizations & Delivery Environments</h2>
+            <p class="section-subtitle">Global experience across leading technology and consulting organizations.</p>
             
-            <div class="awards-grid">
-                <div class="award-card">
-                    <div class="award-title">We Applaud Award</div>
-                    <div class="award-company">Oracle</div>
+            <div class="logo-carousel">
+                <div class="logo-track">
+                    <!-- First Set - SVG Logos -->
+                    <div class="logo-item">
+                        <img src="idt6UroIn0_1769829086727.svg" alt="Netcore Cloud" class="logo-img">
+                    </div>
+                    <div class="logo-item">
+                        <img src="idxq8SaZnR_1769829063770.svg" alt="Freshworks" class="logo-img">
+                    </div>
+                    <div class="logo-item">
+                        <img src="ideA555_no_1769829039775.svg" alt="Capgemini" class="logo-img">
+                    </div>
+                    <div class="logo-item">
+                        <img src="id4ebBkiKL_1769861010817.svg" alt="Synechron" class="logo-img">
+                    </div>
+                    <div class="logo-item">
+                        <img src="idB4errRd8_1769861034676.svg" alt="Sakon" class="logo-img">
+                    </div>
+                    <div class="logo-item">
+                        <img src="idTi07iyIh_1769829017321.svg" alt="Oracle" class="logo-img">
+                    </div>
+                    <div class="logo-item">
+                        <img src="idMvE3tua4_logos.svg" alt="Infosys" class="logo-img">
+                    </div>
+                    
+                    <!-- Duplicate Set for Seamless Loop -->
+                    <div class="logo-item">
+                        <img src="idt6UroIn0_1769829086727.svg" alt="Netcore Cloud" class="logo-img">
+                    </div>
+                    <div class="logo-item">
+                        <img src="idxq8SaZnR_1769829063770.svg" alt="Freshworks" class="logo-img">
+                    </div>
+                    <div class="logo-item">
+                        <img src="ideA555_no_1769829039775.svg" alt="Capgemini" class="logo-img">
+                    </div>
+                    <div class="logo-item">
+                        <img src="id4ebBkiKL_1769861010817.svg" alt="Synechron" class="logo-img">
+                    </div>
+                    <div class="logo-item">
+                        <img src="idB4errRd8_1769861034676.svg" alt="Sakon" class="logo-img">
+                    </div>
+                    <div class="logo-item">
+                        <img src="idTi07iyIh_1769829017321.svg" alt="Oracle" class="logo-img">
+                    </div>
+                    <div class="logo-item">
+                        <img src="idMvE3tua4_logos.svg" alt="Infosys" class="logo-img">
+                    </div>
                 </div>
-                <div class="award-card">
-                    <div class="award-title">Game Changer Award</div>
-                    <div class="award-company">Capgemini</div>
-                </div>
-                <div class="award-card">
-                    <div class="award-title">Bronze Star Award</div>
-                    <div class="award-company">Capgemini</div>
-                </div>
-            </div>
-            
-            <!-- Certifications -->
-            <h3 style="margin-top: 2.5rem; color: var(--primary); font-size: 1.25rem;">Certifications & Continuous Learning</h3>
-            <div class="certifications">
-                <span class="cert-badge">PMP – Project Management Professional</span>
-                <span class="cert-badge">Indian Institute of Management – AI for Leadership (Starting Feb 2026)</span>
             </div>
         </div>
     </section>
 
-    <!-- Page 7: Contact -->
-    <section id="contact" class="page-section" style="background-color: var(--primary); color: white;">
+    <!-- Awards & Recognition Section -->
+    <section id="awards" class="container">
+        <h2 class="section-title">Awards & Recognition</h2>
+        <p class="section-subtitle">Industry recognition for exceptional delivery leadership and transformational impact.</p>
+        
+        <div class="awards-grid">
+            <div class="award-card">
+                <div class="award-title">We Applaud Award</div>
+                <div class="award-company">Oracle</div>
+            </div>
+            <div class="award-card">
+                <div class="award-title">Game Changer Award</div>
+                <div class="award-company">Capgemini</div>
+            </div>
+            <div class="award-card">
+                <div class="award-title">Bronze Star Award</div>
+                <div class="award-company">Capgemini</div>
+            </div>
+        </div>
+        
+        <!-- Certifications -->
+        <h3 style="margin-top: 2.5rem; color: var(--primary); font-size: 1.25rem;">Certifications & Continuous Learning</h3>
+        <div class="certifications">
+            <span class="cert-badge">PMP – Project Management Professional</span>
+            <span class="cert-badge">Indian Institute of Management – AI for Leadership (Starting Feb 2026)</span>
+        </div>
+    </section>
+
+    <!-- Contact Section - Now the last section -->
+    <section id="contact" style="background-color: var(--primary); color: white;">
         <div class="container">
             <h2 class="section-title" style="color: white;">Engage with Me</h2>
             <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.85); max-width: 700px; margin-bottom: 1.5rem;">
@@ -1118,51 +1400,6 @@
     </section>
 
     <script>
-        // Create navigation dots
-        document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('.page-section');
-            const navDots = document.getElementById('navDots');
-            
-            sections.forEach((section, index) => {
-                const dot = document.createElement('div');
-                dot.className = 'nav-dot';
-                dot.setAttribute('data-section', section.id);
-                navDots.appendChild(dot);
-                
-                dot.addEventListener('click', () => {
-                    section.scrollIntoView({ behavior: 'smooth' });
-                });
-            });
-            
-            // Set first dot as active
-            document.querySelector('.nav-dot').classList.add('active');
-        });
-
-        // Update active dot on scroll
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('.page-section');
-            const navDots = document.querySelectorAll('.nav-dot');
-            
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                const scrollPosition = window.scrollY + 100;
-                
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    currentSection = section.id;
-                }
-            });
-            
-            navDots.forEach(dot => {
-                dot.classList.remove('active');
-                if (dot.getAttribute('data-section') === currentSection) {
-                    dot.classList.add('active');
-                }
-            });
-        });
-
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -1182,12 +1419,21 @@
                         top: offsetPosition,
                         behavior: 'smooth'
                     });
-                    
-                    // Close mobile menu if open
-                    navLinks.classList.remove('active');
                 }
             });
         });
+
+        // Pause logo carousel on hover
+        const logoTrack = document.querySelector('.logo-track');
+        if(logoTrack) {
+            logoTrack.addEventListener('mouseenter', () => {
+                logoTrack.style.animationPlayState = 'paused';
+            });
+            
+            logoTrack.addEventListener('mouseleave', () => {
+                logoTrack.style.animationPlayState = 'running';
+            });
+        }
 
         // Mobile menu toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
@@ -1216,25 +1462,24 @@
             }
         });
 
-        // Keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            const sections = document.querySelectorAll('.page-section');
-            const currentScroll = window.scrollY + (window.innerHeight / 2);
-            let currentIndex = -1;
+        // SVG logo fallback handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoImages = document.querySelectorAll('.logo-img');
             
-            sections.forEach((section, index) => {
-                if (section.offsetTop <= currentScroll && section.offsetTop + section.clientHeight > currentScroll) {
-                    currentIndex = index;
-                }
+            logoImages.forEach(img => {
+                // Check if image loaded successfully
+                img.addEventListener('error', function() {
+                    console.warn(`Failed to load logo: ${this.alt}`);
+                    // Create a fallback text
+                    const parent = this.parentElement;
+                    this.style.display = 'none';
+                    
+                    const fallbackText = document.createElement('div');
+                    fallbackText.className = 'logo-placeholder';
+                    fallbackText.textContent = this.alt;
+                    parent.appendChild(fallbackText);
+                });
             });
-            
-            if (e.key === 'ArrowDown' && currentIndex < sections.length - 1) {
-                e.preventDefault();
-                sections[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
-            } else if (e.key === 'ArrowUp' && currentIndex > 0) {
-                e.preventDefault();
-                sections[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
-            }
         });
     </script>
 </body>
