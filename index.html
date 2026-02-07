@@ -356,7 +356,7 @@
         /* Case Studies */
         .case-studies-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: var(--space-lg);
             margin-top: var(--space-lg);
         }
@@ -368,6 +368,9 @@
             box-shadow: var(--box-shadow);
             transition: var(--transition);
             padding: var(--space-xl);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .case-study-card:hover {
@@ -698,18 +701,18 @@
         </div>
     </section>
 
-    <!-- Page 5: Case Studies -->
+    <!-- Page 5: Case Studies - All 4 in correct order -->
     <section id="case-studies" class="page-section">
         <div class="container">
             <h2 class="section-title">Select Case Studies</h2>
             <p class="section-subtitle">Real-world examples of delivery leadership driving measurable business impact.</p>
             
             <div class="case-studies-grid">
-                <!-- Case Study 1: Digital Transformation of Auto Financing Platform -->
+                <!-- Case Study 1: Enterprise Client Onboarding & Escalation Management -->
                 <div class="case-study-card">
                     <div style="width: 100%; text-align: left;">
                         <h3 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; font-weight: 600;">
-                            50 M USD - Digital Transformation of Auto Financing Platform
+                            Medium-Enterprise Client Onboarding & Escalation Management
                         </h3>
                         
                         <div style="margin-bottom: 1rem;">
@@ -717,7 +720,7 @@
                                 Challenge
                             </h4>
                             <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
-                                Migrate a COTS legacy platform to a new digital platform in a complex multi-vendor setup with high defect density (40% in critical modules), 100% hardcoded exception handling, and poor peak season performance causing dealer frustrations - all within strict time and cost parameters.
+                                Delayed onboarding (>100 days), quality issues, trust erosion, and regular CXO escalations.
                             </p>
                         </div>
                         
@@ -726,72 +729,158 @@
                                 Solution
                             </h4>
                             <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
-                                Ownership of E2E test strategy with business-outcome based scenarios, workflow/rule based decision enablement, and seamless dealer network integration to drive zero production defects and 80% STP improvement.
+                                Data-driven prioritization, in-person client engagement, integration optimization, FTR validation, and war room fixes.
                             </p>
                         </div>
                         
                         <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1rem;">
-                            <!-- Row 1: Margin Achievement -->
+                            <!-- Row 1: First Time Right (FTR) -->
                             <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
                                 <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    Target margin
+                                    High issues
                                 </div>
                                 <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    Project Goal
+                                    Before: FTR Rate
                                 </div>
                             </div>
                             
                             <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
                                 <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    40%
+                                    +75% uplift
                                 </div>
                                 <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    Margin Achievement
+                                    After: FTR Rate
                                 </div>
                             </div>
                             
-                            <!-- Row 2: Production Defects -->
+                            <!-- Row 2: Product Performance -->
                             <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
                                 <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    40% defect density
+                                    Quality issues
                                 </div>
                                 <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    Before: Critical Modules
+                                    Before: Performance
                                 </div>
                             </div>
                             
                             <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
                                 <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    0 defects
+                                    +80% improvement
                                 </div>
                                 <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    All Sprint Releases
+                                    After: Performance
                                 </div>
                             </div>
                             
-                            <!-- Row 3: On-Time Delivery -->
+                            <!-- Row 3: Escalation Reduction -->
                             <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
                                 <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    Schedule pressure
+                                    Regular CXO escalations
                                 </div>
                                 <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    Multi-vendor complexity
+                                    Before: Escalation Frequency
                                 </div>
                             </div>
                             
                             <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
                                 <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                    90% on-time
+                                    -70% reduction
                                 </div>
                                 <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                    Delivery Across Sprints
+                                    After: Escalation Reduction
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Case Study 2: AI Lending Management System -->
+                <!-- Case Study 2: Marquee Customer Onboarding & Revenue Leakage Fix -->
+                <div class="case-study-card">
+                    <div style="width: 100%; text-align: left;">
+                        <h3 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; font-weight: 600;">
+                            Marquee Customer Onboarding & Revenue Leakage Fix
+                        </h3>
+                        
+                        <div style="margin-bottom: 1rem;">
+                            <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
+                                Challenge
+                            </h4>
+                            <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
+                                Delayed onboarding, revenue leakage, and poor customer experience impacting business growth.
+                            </p>
+                        </div>
+                        
+                        <div style="margin-bottom: 1rem;">
+                            <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
+                                Solution
+                            </h4>
+                            <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
+                                Shift-left approach with early delivery involvement, deep dive with sales/presales, and pain-point specific use cases.
+                            </p>
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1rem;">
+                            <!-- Row 1: NPS (Net Promoter Score) -->
+                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    -25
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Before: NPS Score
+                                </div>
+                            </div>
+                            
+                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    +10
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    After: NPS Score
+                                </div>
+                            </div>
+                            
+                            <!-- Row 2: Time to Market -->
+                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    120 days
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Before: Time to Market
+                                </div>
+                            </div>
+                            
+                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    60 days
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    After: Time to Market
+                                </div>
+                            </div>
+                            
+                            <!-- Row 3: Revenue Leakage -->
+                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    50L/QoQ
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Before: Revenue Leakage
+                                </div>
+                            </div>
+                            
+                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    85%
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    After: Revenue Improvement
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Case Study 3: AI Lending Management System -->
                 <div class="case-study-card">
                     <div style="width: 100%; text-align: left;">
                         <h3 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; font-weight: 600;">
@@ -876,10 +965,92 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div style="margin-top: 2rem; text-align: center;">
-                <p style="color: var(--gray); font-size: 0.9rem;">Additional case studies available upon request</p>
+                
+                <!-- Case Study 4: Digital Transformation of Auto Financing Platform (LAST as prescribed) -->
+                <div class="case-study-card">
+                    <div style="width: 100%; text-align: left;">
+                        <h3 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; font-weight: 600;">
+                            50 M USD - Digital Transformation of Auto Financing Platform
+                        </h3>
+                        
+                        <div style="margin-bottom: 1rem;">
+                            <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
+                                Challenge
+                            </h4>
+                            <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
+                                Migrate a COTS legacy platform to a new digital platform in a complex multi-vendor setup with high defect density (40% in critical modules), 100% hardcoded exception handling, and poor peak season performance causing dealer frustrations - all within strict time and cost parameters.
+                            </p>
+                        </div>
+                        
+                        <div style="margin-bottom: 1rem;">
+                            <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
+                                Solution
+                            </h4>
+                            <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
+                                Ownership of E2E test strategy with business-outcome based scenarios, workflow/rule based decision enablement, and seamless dealer network integration to drive zero production defects and 80% STP improvement.
+                            </p>
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1rem;">
+                            <!-- Row 1: Margin Achievement -->
+                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    Target margin
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Project Goal
+                                </div>
+                            </div>
+                            
+                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    40%
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Margin Achievement
+                                </div>
+                            </div>
+                            
+                            <!-- Row 2: Production Defects -->
+                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    40% defect density
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Before: Critical Modules
+                                </div>
+                            </div>
+                            
+                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    0 defects
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    All Sprint Releases
+                                </div>
+                            </div>
+                            
+                            <!-- Row 3: On-Time Delivery -->
+                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    Schedule pressure
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Multi-vendor complexity
+                                </div>
+                            </div>
+                            
+                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    90% on-time
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Delivery Across Sprints
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
