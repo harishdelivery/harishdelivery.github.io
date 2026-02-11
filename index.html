@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* (your existing styles – unchanged) */
         :root {
             --primary: #0A2540;     /* Deep navy - trust, stability */
             --secondary: #0066CC;   /* Corporate blue - professionalism */
@@ -600,7 +601,62 @@
             padding: var(--space-xs);
         }
 
-        /* Responsive Design */
+        /* ========== EXPAND / COLLAPSE STYLES FOR CASE STUDIES ========== */
+        .case-studies-wrapper {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease, opacity 0.4s ease, margin 0.3s ease;
+            margin-top: 0;
+        }
+
+        .case-studies-wrapper.expanded {
+            max-height: 4000px;   /* Large enough to contain the whole grid */
+            opacity: 1;
+            margin-top: var(--space-lg);
+        }
+
+        .toggle-case-studies-btn {
+            background-color: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .toggle-case-studies-btn:hover {
+            background-color: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 163, 224, 0.2);
+        }
+
+        .toggle-case-studies-btn i {
+            font-size: 0.9rem;
+            transition: transform 0.25s ease;
+        }
+
+        .expanded .toggle-case-studies-btn i {
+            transform: rotate(90deg);
+        }
+
+        /* Responsive adjustments for the toggle button */
+        @media (max-width: 768px) {
+            .toggle-case-studies-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Responsive Design (unchanged) */
         @media (max-width: 992px) {
             .hero h1 {
                 font-size: 2.25rem;
@@ -622,7 +678,6 @@
                 font-size: 1.75rem;
             }
 
-            /* Adjust grid layouts for tablet */
             .case-studies-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -765,7 +820,7 @@
     </style>
 </head>
 <body>
-    <!-- Header & Navigation -->
+    <!-- Header & Navigation (unchanged) -->
     <header>
         <div class="container header-container">
             <a href="#" class="logo">HARISH<span> NAGARAJAN </span></a>
@@ -787,7 +842,7 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (unchanged) -->
     <section class="hero">
         <div class="container">
             <h1>Global Delivery & Business Transformation Leader</h1>
@@ -799,7 +854,7 @@
         </div>
     </section>
 
-    <!-- Executive Profile Section -->
+    <!-- Executive Profile Section (unchanged) -->
     <section id="profile" class="container">
         <h2 class="section-title">Executive Delivery Profile</h2>
         <p class="section-subtitle">Senior global delivery leader focused on <span class="highlight">business outcomes enabled through delivery excellence</span>.</p>
@@ -810,7 +865,7 @@
         </div>
     </section>
 
-    <!-- PRISM Model Section -->
+    <!-- PRISM Model Section (unchanged) -->
     <section id="prism" style="background-color: var(--light);">
         <div class="container">
             <h2 class="section-title">Delivery Leadership Approach (PRISM)</h2>
@@ -846,7 +901,7 @@
         </div>
     </section>
 
-    <!-- Impact Metrics Section -->
+    <!-- Impact Metrics Section (unchanged) -->
     <section id="impact" class="container">
         <h2 class="section-title">Delivery Leadership Impact</h2>
         <p class="section-subtitle">Measurable results achieved through disciplined execution and strategic delivery leadership.</p>
@@ -879,7 +934,7 @@
         </div>
     </section>
 
-    <!-- Industry Verticals Section -->
+    <!-- Industry Verticals Section (unchanged) -->
     <section id="industries" style="background-color: var(--light);">
         <div class="container">
             <h2 class="section-title">Industry Verticals Expertise</h2>
@@ -929,522 +984,530 @@
         </div>
     </section>
 
-    <!-- Case Studies Section - Updated with new PO Governance case study (4th) -->
+    <!-- ========== CASE STUDIES SECTION – EXPAND / COLLAPSE MODEL ========== -->
     <section id="case-studies" class="container">
         <h2 class="section-title">Select Case Studies</h2>
         <p class="section-subtitle">Real-world examples of delivery leadership driving measurable business impact.</p>
         
-        <div class="case-studies-grid">
-            <!-- Case Study 1: Onboarding & Escalation Management -->
-            <div class="case-study-card">
-                <div style="width: 100%; text-align: left;">
-                    <h3 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; font-weight: 600;">
-                        Enterprise Client Onboarding & Escalation Management
-                    </h3>
-                    
-                    <div style="margin-bottom: 1rem;">
-                        <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
-                            Challenge
-                        </h4>
-                        <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
-                            Delayed onboarding (>100 days), quality issues, trust erosion, and regular CXO escalations.
-                        </p>
-                    </div>
-                    
-                    <div style="margin-bottom: 1rem;">
-                        <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
-                            Solution
-                        </h4>
-                        <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
-                            Data-driven prioritization, in-person client engagement, integration optimization, FTR validation, and war room fixes.
-                        </p>
-                    </div>
-                    
-                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1rem;">
-                        <!-- Row 1: First Time Right (FTR) -->
-                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                30%
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                Before: FTR Rate
-                            </div>
-                        </div>
-                        
-                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                75%
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                After: FTR Rate
-                            </div>
-                        </div>
-                        
-                        <!-- Row 2: Product Performance -->
-                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                Quality issues
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                Before: Performance
-                            </div>
-                        </div>
-                        
-                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                +80% improvement
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                After: Performance
-                            </div>
-                        </div>
-                        
-                        <!-- Row 3: Escalation Reduction -->
-                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                Regular CXO escalations
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                Before: Escalation Frequency
-                            </div>
-                        </div>
-                        
-                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                70% reduction
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                After: Escalation Reduction
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Case Study 2: Marquee Customer accounts & Revenue Leakage Fix -->
-            <div class="case-study-card">
-                <div style="width: 100%; text-align: left;">
-                    <h3 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; font-weight: 600;">
-                        Marquee Customer accounts & Revenue Leakage Fix
-                    </h3>
-                    
-                    <div style="margin-bottom: 1rem;">
-                        <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
-                            Challenge
-                        </h4>
-                        <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
-                            Delayed onboarding, revenue leakage, and poor customer experience impacting business growth.
-                        </p>
-                    </div>
-                    
-                    <div style="margin-bottom: 1rem;">
-                        <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
-                            Solution
-                        </h4>
-                        <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
-                            Shift-left approach with early delivery involvement, deep dive with sales/presales, and pain-point specific use cases.
-                        </p>
-                    </div>
-                    
-                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1rem;">
-                        <!-- Row 1: NPS -->
-                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                -25
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                Before: NPS Score
-                            </div>
-                        </div>
-                        
-                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                +10
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                After: NPS Score
-                            </div>
-                        </div>
-                        
-                        <!-- Row 2: Time to Market -->
-                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                120 days
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                Before: Time to Market
-                            </div>
-                        </div>
-                        
-                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                60 days
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                After: Time to Market
-                            </div>
-                        </div>
-                        
-                        <!-- Row 3: Revenue Leakage -->
-                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                50 Lakhs/QoQ
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                Before: Revenue Leakage
-                            </div>
-                        </div>
-                        
-                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                Reduced leakage by 85%
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                After: Revenue Improvement
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Expand/Collapse Button -->
+        <button id="toggleCaseStudiesBtn" class="toggle-case-studies-btn" aria-expanded="false" aria-controls="caseStudiesWrapper">
+            <i class="fas fa-chevron-right"></i> Show Case Studies
+        </button>
 
-            <!-- Case Study 3: Platform Consolidation & Leadership Visibility -->
-            <div class="case-study-card">
-                <div style="width: 100%; text-align: left;">
-                    <h3 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; font-weight: 600;">
-                        Delivery Platform Consolidation & Leadership Visibility
-                    </h3>
-                    
-                    <div style="margin-bottom: 1rem;">
-                        <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
-                            Challenge
-                        </h4>
-                        <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
-                            Team operating in silos without unified metrics; 10 L INR SaaS platform underutilized with features dormant; manual operations preventing leadership scoring and visibility; no centralized data for decision making.
-                        </p>
-                    </div>
-                    
-                    <div style="margin-bottom: 1rem;">
-                        <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
-                            Solution
-                        </h4>
-                        <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
-                            Drove CEO-level sponsorship to accelerate engineering, achieving full activation in one month and consolidating all implementations onto one platform
-                        </p>
-                    </div>
-                    
-                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1rem;">
-                        <!-- Row 1: Platform Utilization -->
-                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                0%
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                Before: Platform Utilization
-                            </div>
+        <!-- Wrapper that collapses/expands – initially collapsed -->
+        <div id="caseStudiesWrapper" class="case-studies-wrapper">
+            <div class="case-studies-grid">
+                <!-- Case Study 1: Onboarding & Escalation Management (unchanged) -->
+                <div class="case-study-card">
+                    <div style="width: 100%; text-align: left;">
+                        <h3 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; font-weight: 600;">
+                            Enterprise Client Onboarding & Escalation Management
+                        </h3>
+                        
+                        <div style="margin-bottom: 1rem;">
+                            <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
+                                Challenge
+                            </h4>
+                            <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
+                                Delayed onboarding (>100 days), quality issues, trust erosion, and regular CXO escalations.
+                            </p>
                         </div>
                         
-                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                100%
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                After: Platform Utilization
-                            </div>
+                        <div style="margin-bottom: 1rem;">
+                            <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
+                                Solution
+                            </h4>
+                            <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
+                                Data-driven prioritization, in-person client engagement, integration optimization, FTR validation, and war room fixes.
+                            </p>
                         </div>
                         
-                        <!-- Row 2: Manual Operations -->
-                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                100%
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1rem;">
+                            <!-- Row 1: First Time Right (FTR) -->
+                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    High issues
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Before: FTR Rate
+                                </div>
                             </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                Before: Manual Processes
+                            
+                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    40%->75% uplift
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    After: FTR Rate
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                100%
+                            
+                            <!-- Row 2: Product Performance -->
+                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    Quality issues
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Before: Performance
+                                </div>
                             </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                After: Automated Processes
+                            
+                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    +80% improvement
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    After: Performance
+                                </div>
                             </div>
-                        </div>
-                        
-                        <!-- Row 3: Leadership Visibility -->
-                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                Siloed
+                            
+                            <!-- Row 3: Escalation Reduction -->
+                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    Regular CXO escalations
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Before: Escalation Frequency
+                                </div>
                             </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                Before: Team Operations
-                            </div>
-                        </div>
-                        
-                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                Instant visibility
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                After: Data Driven & AI Leadership Dashboards
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- NEW CASE STUDY 4: $500K Revenue Leakage Plugged via PO Governance & RACI Ownership Model -->
-            <div class="case-study-card">
-                <div style="width: 100%; text-align: left;">
-                    <h3 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; font-weight: 600;">
-                        $500K Revenue Leakage Plugged via PO Governance & RACI Ownership Model
-                    </h3>
-                    
-                    <div style="margin-bottom: 1rem;">
-                        <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
-                            Challenge
-                        </h4>
-                        <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
-                            POs issued without ownership clarity or scope discipline drove ~₹2 Cr ($500K) in yearly revenue loss.
-                        </p>
-                    </div>
-                    
-                    <div style="margin-bottom: 1rem;">
-                        <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
-                            Solution
-                        </h4>
-                        <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
-                            Redesigned the commercial governance model with Sales and Finance: embedded RACI accountability, scope control, and milestone-based financial triggers. Stopped leakage, accelerated revenue realization, and restored margin integrity.
-                        </p>
-                    </div>
-                    
-                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1rem;">
-                        <!-- Row 1: Revenue Leakage / Uplift -->
-                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                $500K
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                Before: Annual Revenue Leakage
-                            </div>
-                        </div>
-                        
-                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                70%
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                After: Revenue Uplift
-                            </div>
-                        </div>
-                        
-                        <!-- Row 2: Customer Experience -->
-                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                Negative
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                Before: Customer Experience
-                            </div>
-                        </div>
-                        
-                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                Positive
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                After: Customer Experience
-                            </div>
-                        </div>
-                        
-                        <!-- Row 3: Margins -->
-                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                Below Target
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                Before: Margins
-                            </div>
-                        </div>
-                        
-                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                20%
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                After: Margin Improvement
+                            
+                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    -70% reduction
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    After: Escalation Reduction
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Case Study 5: Agentic AI Lending Management System -->
-            <div class="case-study-card">
-                <div style="width: 100%; text-align: left;">
-                    <h3 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; font-weight: 600;">
-                        Agentic AI Lending Management System
-                    </h3>
-                    
-                    <div style="margin-bottom: 1rem;">
-                        <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
-                            Challenge
-                        </h4>
-                        <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
-                            Manual loan approval processes causing delays, human errors, and poor customer experience.
-                        </p>
-                    </div>
-                    
-                    <div style="margin-bottom: 1rem;">
-                        <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
-                            Solution
-                        </h4>
-                        <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
-                            Automated multi-agent AI system with controlled validation, exception approval routing, and HITL oversight.
-                        </p>
-                    </div>
-                    
-                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1rem;">
-                        <!-- Row 1: Underwriting Time -->
-                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                10-15 days
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                Before: Underwriting
-                            </div>
+                
+                <!-- Case Study 2: Marquee Customer accounts & Revenue Leakage Fix (unchanged) -->
+                <div class="case-study-card">
+                    <div style="width: 100%; text-align: left;">
+                        <h3 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; font-weight: 600;">
+                            Marquee Customer accounts & Revenue Leakage Fix
+                        </h3>
+                        
+                        <div style="margin-bottom: 1rem;">
+                            <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
+                                Challenge
+                            </h4>
+                            <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
+                                Delayed onboarding, revenue leakage, and poor customer experience impacting business growth.
+                            </p>
                         </div>
                         
-                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                1-2 days
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                After: Underwriting
-                            </div>
+                        <div style="margin-bottom: 1rem;">
+                            <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
+                                Solution
+                            </h4>
+                            <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
+                                Shift-left approach with early delivery involvement, deep dive with sales/presales, and pain-point specific use cases.
+                            </p>
                         </div>
                         
-                        <!-- Row 2: Human Error Rate -->
-                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                15%
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1rem;">
+                            <!-- Row 1: NPS -->
+                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    -25
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Before: NPS Score
+                                </div>
                             </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                Before: Error Rate
+                            
+                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    +10
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    After: NPS Score
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                3-5%
+                            
+                            <!-- Row 2: Time to Market -->
+                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    120 days
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Before: Time to Market
+                                </div>
                             </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                After: Error Rate
+                            
+                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    60 days
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    After: Time to Market
+                                </div>
                             </div>
-                        </div>
-                        
-                        <!-- Row 3: Customer Satisfaction -->
-                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                65%
+                            
+                            <!-- Row 3: Revenue Leakage -->
+                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    50 Lakhs/QoQ
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Before: Revenue Leakage
+                                </div>
                             </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                Before: CSAT
-                            </div>
-                        </div>
-                        
-                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                >95%
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                After: CSAT
+                            
+                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    Reduced leakage by 85%
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    After: Revenue Improvement
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Case Study 6: Digital Transformation of Auto Financing Platform -->
-            <div class="case-study-card">
-                <div style="width: 100%; text-align: left;">
-                    <h3 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; font-weight: 600;">
-                        50 M USD - Digital Transformation of Auto Financing Platform
-                    </h3>
-                    
-                    <div style="margin-bottom: 1rem;">
-                        <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
-                            Challenge
-                        </h4>
-                        <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
-                            High-risk platform migration amid defect-heavy critical modules, rigid exception handling, and dealer performance issues
-                        </p>
+
+                <!-- Case Study 3: Delivery Platform Consolidation & Leadership Visibility (unchanged) -->
+                <div class="case-study-card">
+                    <div style="width: 100%; text-align: left;">
+                        <h3 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; font-weight: 600;">
+                            Delivery Platform Consolidation & Leadership Visibility
+                        </h3>
+                        
+                        <div style="margin-bottom: 1rem;">
+                            <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
+                                Challenge
+                            </h4>
+                            <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
+                                Team operating in silos without unified metrics; 10 L INR SaaS platform underutilized with features dormant; manual operations preventing leadership scoring and visibility; no centralized data for decision making.
+                            </p>
+                        </div>
+                        
+                        <div style="margin-bottom: 1rem;">
+                            <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
+                                Solution
+                            </h4>
+                            <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
+                                Drove CEO-level sponsorship to accelerate engineering, achieving full activation in one month and consolidating all implementations onto one platform
+                            </p>
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1rem;">
+                            <!-- Row 1: Platform Utilization -->
+                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    0%
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Before: Platform Utilization
+                                </div>
+                            </div>
+                            
+                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    100%
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    After: Platform Utilization
+                                </div>
+                            </div>
+                            
+                            <!-- Row 2: Manual Operations -->
+                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    100%
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Before: Manual Processes
+                                </div>
+                            </div>
+                            
+                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    100%
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    After: Automated Processes
+                                </div>
+                            </div>
+                            
+                            <!-- Row 3: Leadership Visibility -->
+                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    Siloed
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Before: Team Operations
+                                </div>
+                            </div>
+                            
+                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    Instant visibility
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    After: Data Driven & AI Leadership Dashboards
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div style="margin-bottom: 1rem;">
-                        <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
-                            Solution
-                        </h4>
-                        <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
-                            Established business-aligned test governance and decision automation, stabilizing releases and improving STP by 80% with zero prod leakage
-                        </p>
+                </div>
+                
+                <!-- NEW CASE STUDY 4: $500K Revenue Leakage Plugged via PO Governance & RACI Ownership Model (unchanged) -->
+                <div class="case-study-card">
+                    <div style="width: 100%; text-align: left;">
+                        <h3 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; font-weight: 600;">
+                            $500K Revenue Leakage Plugged via PO Governance & RACI Ownership Model
+                        </h3>
+                        
+                        <div style="margin-bottom: 1rem;">
+                            <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
+                                Challenge
+                            </h4>
+                            <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
+                                POs issued without ownership clarity or scope discipline drove ~₹2 Cr ($500K) in yearly revenue loss.
+                            </p>
+                        </div>
+                        
+                        <div style="margin-bottom: 1rem;">
+                            <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
+                                Solution
+                            </h4>
+                            <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
+                                Redesigned the commercial governance model with Sales and Finance: embedded RACI accountability, scope control, and milestone-based financial triggers. Stopped leakage, accelerated revenue realization, and restored margin integrity.
+                            </p>
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1rem;">
+                            <!-- Row 1: Revenue Leakage / Uplift -->
+                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    $500K
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Before: Annual Revenue Leakage
+                                </div>
+                            </div>
+                            
+                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    70%
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    After: Revenue Uplift
+                                </div>
+                            </div>
+                            
+                            <!-- Row 2: Customer Experience -->
+                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    Negative
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Before: Customer Experience
+                                </div>
+                            </div>
+                            
+                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    Positive
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    After: Customer Experience
+                                </div>
+                            </div>
+                            
+                            <!-- Row 3: Margins -->
+                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    Below Target
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Before: Margins
+                                </div>
+                            </div>
+                            
+                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    20%
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    After: Margin Improvement
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1rem;">
-                        <!-- Row 1: Margin Achievement -->
-                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                Target margin 50%
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                Project Goal
-                            </div>
+                </div>
+                
+                <!-- Case Study 5: Agentic AI Lending Management System (unchanged) -->
+                <div class="case-study-card">
+                    <div style="width: 100%; text-align: left;">
+                        <h3 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; font-weight: 600;">
+                            Agentic AI Lending Management System
+                        </h3>
+                        
+                        <div style="margin-bottom: 1rem;">
+                            <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
+                                Challenge
+                            </h4>
+                            <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
+                                Manual loan approval processes causing delays, human errors, and poor customer experience.
+                            </p>
                         </div>
                         
-                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                40%
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                Margin Achievement
-                            </div>
+                        <div style="margin-bottom: 1rem;">
+                            <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
+                                Solution
+                            </h4>
+                            <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
+                                Automated multi-agent AI system with controlled validation, exception approval routing, and HITL oversight.
+                            </p>
                         </div>
                         
-                        <!-- Row 2: Production Defects -->
-                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                40% defect density
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1rem;">
+                            <!-- Row 1: Underwriting Time -->
+                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    10-15 days
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Before: Underwriting
+                                </div>
                             </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                Before: Critical Modules
+                            
+                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    1-2 days
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    After: Underwriting
+                                </div>
+                            </div>
+                            
+                            <!-- Row 2: Human Error Rate -->
+                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    15%
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Before: Error Rate
+                                </div>
+                            </div>
+                            
+                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    3-5%
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    After: Error Rate
+                                </div>
+                            </div>
+                            
+                            <!-- Row 3: Customer Satisfaction -->
+                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    65%
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Before: CSAT
+                                </div>
+                            </div>
+                            
+                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    >95%
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    After: CSAT
+                                </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                
+                <!-- Case Study 6: Digital Transformation of Auto Financing Platform (unchanged) -->
+                <div class="case-study-card">
+                    <div style="width: 100%; text-align: left;">
+                        <h3 style="font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; font-weight: 600;">
+                            50 M USD - Digital Transformation of Auto Financing Platform
+                        </h3>
                         
-                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                No P0/P1 defects
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                Production Releases
-                            </div>
+                        <div style="margin-bottom: 1rem;">
+                            <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
+                                Challenge
+                            </h4>
+                            <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
+                                High-risk platform migration amid defect-heavy critical modules, rigid exception handling, and dealer performance issues
+                            </p>
                         </div>
                         
-                        <!-- Row 3: On-Time Delivery -->
-                        <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                30% Slippage
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                Before Variation
-                            </div>
+                        <div style="margin-bottom: 1rem;">
+                            <h4 style="font-size: 1rem; color: var(--secondary); margin-bottom: 0.5rem; font-weight: 500;">
+                                Solution
+                            </h4>
+                            <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
+                                Established business-aligned test governance and decision automation, stabilizing releases and improving STP by 80% with zero prod leakage
+                            </p>
                         </div>
                         
-                        <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
-                            <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
-                                90% on-time
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1rem;">
+                            <!-- Row 1: Margin Achievement -->
+                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    Target margin 50%
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Project Goal
+                                </div>
                             </div>
-                            <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
-                                After: Consistent & Predictable Delivery Across Sprints
+                            
+                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    40%
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Margin Achievement
+                                </div>
+                            </div>
+                            
+                            <!-- Row 2: Production Defects -->
+                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    40% defect density
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Before: Critical Modules
+                                </div>
+                            </div>
+                            
+                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    No P0/P1 defects
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Production Releases
+                                </div>
+                            </div>
+                            
+                            <!-- Row 3: On-Time Delivery -->
+                            <div style="background-color: rgba(0, 102, 204, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #e74c3c;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    Schedule pressure
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Multi-vendor complexity
+                                </div>
+                            </div>
+                            
+                            <div style="background-color: rgba(40, 167, 69, 0.05); padding: 0.75rem; border-radius: 4px; border-left: 3px solid #28a745;">
+                                <div style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;">
+                                    90% on-time
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--gray); font-weight: 500;">
+                                    Delivery Across Sprints
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1453,7 +1516,7 @@
         </div>
     </section>
 
-    <!-- Experience Carousel -->
+    <!-- Experience Carousel (unchanged) -->
     <section id="experience" style="background-color: var(--light);">
         <div class="container">
             <h2 class="section-title">Organizations & Delivery Environments</h2>
@@ -1511,7 +1574,7 @@
         </div>
     </section>
 
-    <!-- Awards & Recognition Section -->
+    <!-- Awards & Recognition Section (unchanged) -->
     <section id="awards" class="container">
         <h2 class="section-title">Awards & Recognition</h2>
         <p class="section-subtitle">Industry recognition for exceptional delivery leadership and transformational impact.</p>
@@ -1539,7 +1602,7 @@
         </div>
     </section>
 
-    <!-- Contact Section - Now the last section -->
+    <!-- Contact Section - Now the last section (unchanged) -->
     <section id="contact" style="background-color: var(--primary); color: white;">
         <div class="container">
             <h2 class="section-title" style="color: white;">Engage with Me</h2>
@@ -1572,7 +1635,7 @@
     </section>
 
     <script>
-        // Smooth scrolling for navigation links
+        // Smooth scrolling for navigation links (unchanged)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1591,11 +1654,22 @@
                         top: offsetPosition,
                         behavior: 'smooth'
                     });
+
+                    // Special handling: if the target is case studies and it's collapsed, expand it automatically
+                    if (targetId === '#case-studies') {
+                        const wrapper = document.getElementById('caseStudiesWrapper');
+                        const btn = document.getElementById('toggleCaseStudiesBtn');
+                        if (wrapper && btn && !wrapper.classList.contains('expanded')) {
+                            wrapper.classList.add('expanded');
+                            btn.innerHTML = '<i class="fas fa-chevron-down"></i> Hide Case Studies';
+                            btn.setAttribute('aria-expanded', 'true');
+                        }
+                    }
                 }
             });
         });
 
-        // Pause logo carousel on hover
+        // Pause logo carousel on hover (unchanged)
         const logoTrack = document.querySelector('.logo-track');
         if(logoTrack) {
             logoTrack.addEventListener('mouseenter', () => {
@@ -1607,7 +1681,7 @@
             });
         }
 
-        // Mobile menu toggle
+        // Mobile menu toggle (unchanged)
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
         
@@ -1616,7 +1690,6 @@
                 navLinks.classList.toggle('active');
             });
             
-            // Close mobile menu when clicking a link
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.addEventListener('click', () => {
                     navLinks.classList.remove('active');
@@ -1624,7 +1697,7 @@
             });
         }
 
-        // Add scroll effect to header
+        // Add scroll effect to header (unchanged)
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if(window.scrollY > 40) {
@@ -1634,18 +1707,16 @@
             }
         });
 
-        // SVG logo fallback handling
+        // SVG logo fallback handling (unchanged)
         document.addEventListener('DOMContentLoaded', function() {
             const logoImages = document.querySelectorAll('.logo-img');
             
             logoImages.forEach(img => {
-                // Check if image loaded successfully
                 img.addEventListener('error', function() {
                     console.warn(`Failed to load logo: ${this.alt}`);
-                    // Create a fallback text
-                    const parent = this.parentElement;
                     this.style.display = 'none';
                     
+                    const parent = this.parentElement;
                     const fallbackText = document.createElement('div');
                     fallbackText.className = 'logo-placeholder';
                     fallbackText.textContent = this.alt;
@@ -1653,7 +1724,56 @@
                 });
             });
         });
+
+        // ========== EXPAND / COLLAPSE TOGGLE FOR CASE STUDIES ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('toggleCaseStudiesBtn');
+            const wrapper = document.getElementById('caseStudiesWrapper');
+
+            if (toggleBtn && wrapper) {
+                // Initially collapsed – ensure wrapper does NOT have 'expanded' class
+                wrapper.classList.remove('expanded');
+                toggleBtn.innerHTML = '<i class="fas fa-chevron-right"></i> Show Case Studies';
+                toggleBtn.setAttribute('aria-expanded', 'false');
+
+                toggleBtn.addEventListener('click', function() {
+                    const isExpanded = wrapper.classList.contains('expanded');
+                    
+                    if (isExpanded) {
+                        wrapper.classList.remove('expanded');
+                        toggleBtn.innerHTML = '<i class="fas fa-chevron-right"></i> Show Case Studies';
+                        toggleBtn.setAttribute('aria-expanded', 'false');
+                    } else {
+                        wrapper.classList.add('expanded');
+                        toggleBtn.innerHTML = '<i class="fas fa-chevron-down"></i> Hide Case Studies';
+                        toggleBtn.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            }
+        });
+
+        /* 
+            --------------------------------------------------------------
+            EXPAND / COLLAPSE – OPTIONS SUGGESTED 
+            --------------------------------------------------------------
+            1. Whole‑section toggle (implemented above): 
+                - One button shows/hides the entire grid.
+                - Keeps the page clean, user decides when to see details.
+                - Best for “review only if needed”.
+
+            2. “Load more” incremental reveal: 
+                - Show first 2–3 cards, then a button to load the rest.
+                - Reduces initial scroll but still requires action to see all.
+
+            3. Individual card accordions: 
+                - Each case study could be collapsed to just the title.
+                - User expands only the ones they care about.
+                - More granular but increases UI complexity.
+
+            The current implementation (whole‑section toggle) is the most 
+            straightforward and keeps the existing layout intact.
+            --------------------------------------------------------------
+        */
     </script>
 </body>
 </html>
-
